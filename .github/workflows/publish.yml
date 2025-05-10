@@ -12,7 +12,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
       - name: Login to NPM
-        run: "npm set _authToken=$NPM_TOKEN"
+        run: "npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN"
         working-directory: "./dist"
       - name: "Publish"
         run: "npm publish"
