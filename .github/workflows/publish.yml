@@ -1,0 +1,15 @@
+name: publish
+
+on: ["push", "pull_request"]
+
+jobs:
+  make:
+    runs-on: ubuntu-latest
+    container: node:20.9.0
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Swagger Codegen CLI
+        uses: FinalBuild-Studio/swagger-codegen-action@v1.2
+        with:
+          l: "typescript-fetch"
