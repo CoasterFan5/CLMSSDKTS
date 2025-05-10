@@ -1,0 +1,26 @@
+{
+  "name": "clmssdkts",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "module": "es2020",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "convert": "api-spec-converter --from=swagger_1 --to=swagger_2 ./swagger > swagger-2.0-spec.json",
+    "dev": "tsx ./src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^22.15.17",
+    "api-spec-converter": "^2.12.0",
+    "swagger-converter": "^2.1.0",
+    "zod": "^3.24.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1"
+  }
+}

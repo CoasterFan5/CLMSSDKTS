@@ -1,3 +1,7 @@
+# This project's things
+swagger2.json
+/swagger/**/*
+
 # Logs
 logs
 *.log
