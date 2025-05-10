@@ -1,0 +1,11 @@
+{
+  "name": "clmssdkts",
+  "version": "1.0.0",
+  "description": "Unofficial canvas sdk with types",
+  "type": "module",
+  "module": "es2020",
+  "main": "index.js",
+  "keywords": [],
+  "author": "CoasterFan5",
+  "license": "ISC"
+}
