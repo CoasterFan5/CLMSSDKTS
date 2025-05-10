@@ -12,4 +12,5 @@ jobs:
       - name: Swagger Codegen CLI
         uses: FinalBuild-Studio/swagger-codegen-action@v1.2
         with:
-          l: "typescript-fetch"
+          language: "typescript-fetch"
+          input: "swagger2.json"
