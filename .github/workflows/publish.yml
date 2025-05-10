@@ -14,6 +14,9 @@ jobs:
       - name: Login to NPM
         run: "npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN"
         working-directory: "./dist"
+      - name: "Update version"
+        run: "npm version patch" # Only patch releases here
+        working-directory: "./dist"
       - name: "Publish"
         run: "npm publish"
         working-directory: "./dist"
