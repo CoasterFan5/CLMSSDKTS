@@ -3,6 +3,3 @@ java -jar builder.jar generate \
 -g typescript-node \
 -o dist \
 --skip-validate-spec
-
-chmod +x ./dist/git_push.sh
-./dist/git_push.sh
