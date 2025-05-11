@@ -1,7 +1,6 @@
 // this file downloads everything
 import z from "zod";
 import fs from "fs/promises";
-import { convert } from "swagger-converter";
 const docUrlBase = "https://canvas.jmu.edu/doc/api";
 const routeListRoute = "api-docs.json";
 
@@ -55,16 +54,13 @@ export const downloadDocData = async () => {
     // now we can have some fun
     for (const api of data.data.apis) {
       const rq = await fetch(`${docUrlBase}${api.path}`);
-      const d = await rq.json();
-      dataList[api.path] = d;
+      fs.writeFile(
+        `./swagger${api.path}`,
+        JSON.stringify(await rq.json(), null, 4),
+      );
     }
 
     const endTime = performance.now();
-
-    fs.writeFile(
-      "swagger2.json",
-      JSON.stringify(await convert(data.data, dataList), null, 4),
-    );
 
     console.info(`Downloaded in ${endTime - startTime}ms`);
     return true;
