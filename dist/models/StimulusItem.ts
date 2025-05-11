@@ -1,0 +1,1 @@
+export type StimulusItem = {title: string,body: string,instructions: string,source_url?: string,orientation: string,passage: boolean}

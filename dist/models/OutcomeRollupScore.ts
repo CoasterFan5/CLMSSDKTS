@@ -1,0 +1,1 @@
+export type OutcomeRollupScore = {score: number,count: number}

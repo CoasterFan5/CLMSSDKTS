@@ -1,0 +1,1 @@
+export type OutcomeGroup = {id: number,url: string,context_id: number,context_type: string,title: string,description: string,vendor_guid: string,subgroups_url: string,outcomes_url: string,import_url: string,can_edit: boolean}

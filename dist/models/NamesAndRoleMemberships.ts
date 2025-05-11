@@ -1,0 +1,1 @@
+export type NamesAndRoleMemberships = {id: string,members: unknown}

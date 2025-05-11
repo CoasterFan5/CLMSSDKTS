@@ -1,0 +1,1 @@
+export type QuizAssignmentOverrideSetContainer = {quiz_assignment_overrides: unknown}

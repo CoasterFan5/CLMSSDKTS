@@ -1,0 +1,1 @@
+export type Lti::PlacementOverlay = {text: string,target_link_uri: string,message_type: string,launch_height: number,launch_width: number,icon_url: string,default: string}

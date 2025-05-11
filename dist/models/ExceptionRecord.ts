@@ -1,0 +1,1 @@
+export type ExceptionRecord = {course_id: number,conflicting_changes: unknown}

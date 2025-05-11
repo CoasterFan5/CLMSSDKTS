@@ -1,0 +1,1 @@
+export type ListLtiRegistrationsResponse = {total: number,data: unknown}

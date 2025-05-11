@@ -1,0 +1,1 @@
+export type ErrorReport = {subject: string,comments: string,user_perceived_severity: string,email: string,url: string,context_asset_string: string,user_roles: string}

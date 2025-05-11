@@ -1,0 +1,1 @@
+export type PollSession = {id: number,poll_id: number,course_id: number,course_section_id: number,is_published: boolean,has_public_results: boolean,created_at: string,results: object}

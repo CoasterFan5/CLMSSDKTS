@@ -1,0 +1,1 @@
+export type ProvisionalGrade = {provisional_grade_id: number,score: number,grade: string,grade_matches_current_submission: boolean,graded_at: string,final: boolean,speedgrader_url: string}

@@ -1,0 +1,1 @@
+export type QuizAccommodationRequest = {user_id: number,extra_time: number,extra_attempts: number,reduce_choices_enabled: boolean}

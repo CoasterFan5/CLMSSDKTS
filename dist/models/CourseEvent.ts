@@ -1,0 +1,1 @@
+export type CourseEvent = {id: string,created_at: string,event_type: string,event_data: string,event_source: string}

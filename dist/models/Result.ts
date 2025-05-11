@@ -1,0 +1,1 @@
+export type Result = {id: string,userId: string,resultScore: number,resultMaximum: number,comment: string,scoreOf: string}

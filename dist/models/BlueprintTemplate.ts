@@ -1,0 +1,1 @@
+export type BlueprintTemplate = {id: number,course_id: number,last_export_completed_at: string,associated_course_count: number}

@@ -1,0 +1,1 @@
+export type Favorite = {context_id: number,context_type: string}

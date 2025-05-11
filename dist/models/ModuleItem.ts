@@ -1,0 +1,1 @@
+export type ModuleItem = {id: number,module_id: number,position: number,title: string,indent: number,type: string,content_id: number,html_url: string,url?: string,page_url: string,external_url: string,new_tab: boolean,published?: boolean}

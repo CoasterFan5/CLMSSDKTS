@@ -1,0 +1,1 @@
+export type Admin = {id: number,role: string,workflow_state: string}

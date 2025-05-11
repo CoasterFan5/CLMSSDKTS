@@ -1,0 +1,1 @@
+export type Lti::PlacementLaunchDefinition = {message_type: string,url: string,title: string}

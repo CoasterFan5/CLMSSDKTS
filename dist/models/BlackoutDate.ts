@@ -1,0 +1,1 @@
+export type BlackoutDate = {id: number,context_id: number,context_type: string,start_date: string,end_date: string,event_title: string}

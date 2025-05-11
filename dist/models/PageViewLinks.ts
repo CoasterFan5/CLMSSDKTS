@@ -1,0 +1,1 @@
+export type PageViewLinks = {user: number,context: number,asset: number,real_user: number,account: number}

@@ -1,0 +1,1 @@
+export type GradingPeriodSets = {title: string,weighted: boolean,display_totals_for_all_grading_periods: boolean}

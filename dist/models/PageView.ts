@@ -1,0 +1,1 @@
+export type PageView = {id: string,app_name: string,url: string,context_type: string,asset_type: string,controller: string,action: string,contributed: boolean,interaction_seconds: number,created_at: string,user_request: boolean,render_time: number,user_agent: string,participated: boolean,http_method: string,remote_ip: string}

@@ -1,0 +1,1 @@
+export type CourseAttributes = {id: number,name: string,sis_id: string,integration_id: string}

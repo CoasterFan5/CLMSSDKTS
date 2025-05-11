@@ -1,0 +1,1 @@
+export type Module = {id: number,workflow_state: string,position: number,name: string,unlock_at?: string,require_sequential_progress: boolean,requirement_type: string,prerequisite_module_ids: unknown,items_count: number,items_url: string,items: unknown,state?: string,completed_at?: string,publish_final_grade: boolean,published?: boolean}

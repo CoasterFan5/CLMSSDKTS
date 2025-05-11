@@ -1,0 +1,1 @@
+export type QuizAssignmentOverride = {id: number,due_at: string,unlock_at: string,lock_at: string,title: string,base: boolean}

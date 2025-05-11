@@ -1,0 +1,1 @@
+export type ChangeRecord = {asset_id: number,asset_type: string,asset_name: string,change_type: string,html_url: string,locked: boolean,exceptions: unknown}

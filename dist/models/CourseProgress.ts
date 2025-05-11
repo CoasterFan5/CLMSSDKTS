@@ -1,0 +1,1 @@
+export type CourseProgress = {requirement_count: number,requirement_completed_count: number,next_requirement_url: string,completed_at: string}

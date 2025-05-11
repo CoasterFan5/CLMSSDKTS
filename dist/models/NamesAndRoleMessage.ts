@@ -1,0 +1,1 @@
+export type NamesAndRoleMessage = {https://purl.imsglobal.org/spec/lti/claim/message_type: string,locale: string,https://www.instructure.com/canvas_user_id: number,https://www.instructure.com/canvas_user_login_id: string,https://purl.imsglobal.org/spec/lti/claim/custom: object}

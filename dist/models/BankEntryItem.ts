@@ -1,0 +1,1 @@
+export type BankEntryItem = {entry_type: string,archived: boolean}

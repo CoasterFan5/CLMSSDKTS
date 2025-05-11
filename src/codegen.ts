@@ -31,10 +31,40 @@ export const codeGen = async () => {
       throw newData.error;
     }
 
+    const typesMap: Record<string, string> = {
+      integer: "number",
+      "string|User": "string",
+      number: "number",
+      uuid: "string",
+      string: "string",
+      boolean: "boolean",
+      object: "object",
+      array: "unknown",
+      date: "Date",
+      void: "void",
+    };
+
     // lets do models now
     for (const m in newData.data.models) {
       const model = newData.data.models[m];
+
+      let builtModel = `export type ${model.id} = {`;
+      // model builder pt 1
+      let propDetailsArray = [];
+      for (const propId in model.properties) {
+        const propDetails = model.properties[propId];
+        if (propDetails.type) {
+          propDetailsArray.push(
+            `${propId}${propDetails.description?.toLowerCase().includes("optional") ? "?" : ""}: ${typesMap[propDetails.type] || "string"}`,
+          );
+        }
+      }
+      builtModel += propDetailsArray.join(",");
+      builtModel += `}`;
+      await fs.writeFile(`./dist/models/${model.id}.ts`, builtModel);
     }
+
+    // the actual routes
 
     for (const apiRoute of newData.data.apis) {
       for (const apiOperation of apiRoute.operations) {

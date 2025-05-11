@@ -1,0 +1,1 @@
+export type Grader = {id: number,name: string,assignments: unknown}

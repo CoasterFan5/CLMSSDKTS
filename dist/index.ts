@@ -1,4 +1,5 @@
 import { RouteTypes } from "./methods/routeTyper";
+import { Account } from "./models/Account";
 
 export class CanvasLMS {
   token: string;

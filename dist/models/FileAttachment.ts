@@ -1,0 +1,1 @@
+export type FileAttachment = {content-type: string,url: string,filename: string,display_name: string}

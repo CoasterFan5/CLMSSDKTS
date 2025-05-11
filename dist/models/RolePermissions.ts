@@ -1,0 +1,1 @@
+export type RolePermissions = {enabled: boolean,locked: boolean,applies_to_self: boolean,applies_to_descendants: boolean,readonly: boolean,explicit: boolean,prior_default: boolean}

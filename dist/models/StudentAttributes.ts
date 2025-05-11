@@ -1,0 +1,1 @@
+export type StudentAttributes = {user_id: number,sis_user_id: string}

@@ -1,0 +1,1 @@
+export type RubricCriterion = {id: string,description: string,long_description: string,points: number,criterion_use_range: boolean,ratings: unknown}

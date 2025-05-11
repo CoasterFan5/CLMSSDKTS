@@ -1,0 +1,1 @@
+export type QuizSubmissionEvent = {created_at: string,event_type: string,event_data: object}

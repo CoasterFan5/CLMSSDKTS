@@ -1,0 +1,1 @@
+export type GradeChangeEvent = {id: string,created_at: string,event_type: string,excused_after: boolean,excused_before: boolean,grade_after: string,grade_before: string,graded_anonymously: boolean,version_number: string,request_id: string}

@@ -1,0 +1,1 @@
+export type QuizIPFilter = {name: string,account: string,filter: string}

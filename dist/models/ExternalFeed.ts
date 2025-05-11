@@ -1,0 +1,1 @@
+export type ExternalFeed = {id: number,display_name: string,url: string,header_match: string,created_at: string,verbosity: string}

@@ -1,0 +1,1 @@
+export type OutcomeRollupScoreLinks = {outcome: number}

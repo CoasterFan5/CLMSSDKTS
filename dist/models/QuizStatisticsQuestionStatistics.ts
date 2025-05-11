@@ -1,0 +1,1 @@
+export type QuizStatisticsQuestionStatistics = {responses: number}

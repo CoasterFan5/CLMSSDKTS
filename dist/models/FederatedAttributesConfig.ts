@@ -1,0 +1,1 @@
+export type FederatedAttributesConfig = {admin_roles: string,display_name: string,email: string,given_name: string,integration_id: string,locale: string,name: string,sis_user_id: string,sortable_name: string,surname: string,timezone: string}

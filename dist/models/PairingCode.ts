@@ -1,0 +1,1 @@
+export type PairingCode = {user_id: number,code: string,expires_at: string,workflow_state: string}

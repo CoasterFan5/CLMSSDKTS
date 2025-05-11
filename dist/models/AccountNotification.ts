@@ -1,0 +1,1 @@
+export type AccountNotification = {subject: string,message: string,start_at: string,end_at: string,icon: string,roles: unknown,role_ids: unknown,author: object}

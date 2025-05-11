@@ -1,0 +1,1 @@
+export type ModuleItemSequence = {items: unknown,modules: unknown}

@@ -1,0 +1,1 @@
+export type ContentShare = {id: number,name: string,content_type: string,created_at: string,updated_at: string,user_id: number,sender: object,receivers: unknown,source_course: object,read_state: string}

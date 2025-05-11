@@ -1,0 +1,1 @@
+export type Account = {id: number,name: string,uuid: string,parent_account_id: number,root_account_id: number,workflow_state: string}

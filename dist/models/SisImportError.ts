@@ -1,0 +1,1 @@
+export type SisImportError = {sis_import_id: number,file: string,message: string,row_info: string,row: number}

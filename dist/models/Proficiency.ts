@@ -1,0 +1,1 @@
+export type Proficiency = {ratings: unknown}

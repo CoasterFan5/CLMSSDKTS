@@ -1,0 +1,1 @@
+export type AssignmentGroupGrade = {id: number,global_id: number,score: number,possible: number,weight: number,grade: number,dropped: unknown}

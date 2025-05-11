@@ -1,0 +1,1 @@
+export type Report = {id: number,file_url: string,status: string,created_at: string,started_at: string,ended_at: string}

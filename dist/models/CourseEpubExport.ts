@@ -1,0 +1,1 @@
+export type CourseEpubExport = {id: number,name: string}

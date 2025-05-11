@@ -1,0 +1,1 @@
+export type Scope = {resource: string,resource_name: string,controller: string,action: string,verb: string,scope: string}

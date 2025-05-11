@@ -1,0 +1,1 @@
+export type QuestionItem = {title: string,item_body: string,calculator_type: string,interaction_type_slug: string,interaction_data: object,properties: object,scoring_data: object,answer_feedback: object,scoring_algorithm: string}

@@ -1,0 +1,1 @@
+export type MultipleAttemptsSettings = {multiple_attempts_enabled: boolean,attempt_limit: boolean,max_attempts: number,score_to_keep: string,cooling_period: boolean,cooling_period_seconds: number}

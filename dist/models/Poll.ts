@@ -1,0 +1,1 @@
+export type Poll = {id: number,question: string,description: string,created_at: string,user_id: number,total_results: object}

@@ -1,0 +1,1 @@
+export type Outcome = {id: number,url: string,context_id: number,context_type: string,title: string,display_name?: string,description: string,vendor_guid: string,points_possible: number,mastery_points: number,calculation_method: string,calculation_int: number,ratings: unknown,can_edit: boolean,can_unlink: boolean,assessed: boolean,has_updateable_rubrics: boolean}

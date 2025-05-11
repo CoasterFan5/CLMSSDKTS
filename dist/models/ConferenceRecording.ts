@@ -1,0 +1,1 @@
+export type ConferenceRecording = {duration_minutes: number,title: string,updated_at: string,created_at: string,playback_url: string}

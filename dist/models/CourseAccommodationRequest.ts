@@ -1,0 +1,1 @@
+export type CourseAccommodationRequest = {user_id: number,extra_time: number,apply_to_in_progress_quiz_sessions: boolean,reduce_choices_enabled: boolean}

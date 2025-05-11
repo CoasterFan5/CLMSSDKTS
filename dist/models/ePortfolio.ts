@@ -1,0 +1,1 @@
+export type ePortfolio = {id: number,user_id: number,name: string,public: boolean,created_at: string,updated_at: string,workflow_state: string,deleted_at: string,spam_status: string}

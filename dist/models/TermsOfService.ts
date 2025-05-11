@@ -1,0 +1,1 @@
+export type TermsOfService = {id: number,terms_type: string,passive: boolean,account_id: number,content: string,self_registration_type: string}

@@ -1,0 +1,1 @@
+export type CreatedEventData = {name: unknown,start_at: unknown,conclude_at: unknown,is_public: unknown,created_source: string}

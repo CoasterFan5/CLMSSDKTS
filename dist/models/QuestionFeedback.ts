@@ -1,0 +1,1 @@
+export type QuestionFeedback = {neutral: string,correct: string,incorrect: string}

@@ -1,0 +1,1 @@
+export type PollChoice = {id: number,poll_id: number,is_correct: boolean,text: string,position: number}

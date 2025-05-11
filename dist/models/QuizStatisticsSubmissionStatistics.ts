@@ -1,0 +1,1 @@
+export type QuizStatisticsSubmissionStatistics = {unique_count: number,score_average: number,score_high: number,score_low: number,score_stdev: number,scores: object,correct_count_average: number,incorrect_count_average: number,duration_average: number}

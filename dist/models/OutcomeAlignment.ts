@@ -1,0 +1,1 @@
+export type OutcomeAlignment = {id: number,assignment_id: number,assessment_id: number,submission_types: string,url: string,title: string}

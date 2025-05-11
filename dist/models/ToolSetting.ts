@@ -1,0 +1,1 @@
+export type ToolSetting = {resource_type_code: string,resource_url: string}

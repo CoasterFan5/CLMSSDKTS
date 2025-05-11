@@ -1,0 +1,1 @@
+export type AssignmentDate = {id?: number,base?: boolean,title: string,due_at: string,unlock_at: string,lock_at: string}

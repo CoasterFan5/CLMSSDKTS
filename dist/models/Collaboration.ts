@@ -1,0 +1,1 @@
+export type Collaboration = {id: number,collaboration_type: string,document_id: string,user_id: number,context_id: number,context_type: string,url: string,created_at: string,updated_at: string,description: string,title: string,type: string,update_url: string,user_name: string}

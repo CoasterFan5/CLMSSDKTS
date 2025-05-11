@@ -1,0 +1,1 @@
+export type GradingPeriod = {id: number,title: string,start_date: string,end_date: string,close_date: string,weight: number,is_closed: boolean}

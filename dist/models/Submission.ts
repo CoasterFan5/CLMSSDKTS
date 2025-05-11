@@ -1,0 +1,1 @@
+export type Submission = {id: number,student_entered_score: string}

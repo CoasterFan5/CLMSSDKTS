@@ -1,0 +1,1 @@
+export type AnonymousUserDisplay = {anonymous_id: string,avatar_image_url: string,display_name: string}

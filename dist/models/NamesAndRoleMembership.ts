@@ -1,0 +1,1 @@
+export type NamesAndRoleMembership = {status: string,name: string,picture: string,given_name: string,family_name: string,email: string,lis_person_sourcedid: string,user_id: string,roles: unknown,message: unknown}

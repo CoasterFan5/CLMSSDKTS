@@ -1,0 +1,1 @@
+export type QuizGroup = {id: number,quiz_id: number,name: string,pick_count: number,question_points: number,assessment_question_bank_id: number,position: number}

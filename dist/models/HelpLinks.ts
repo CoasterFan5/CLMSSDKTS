@@ -1,0 +1,1 @@
+export type HelpLinks = {help_link_name: string,help_link_icon: string,custom_help_links: unknown,default_help_links: unknown}

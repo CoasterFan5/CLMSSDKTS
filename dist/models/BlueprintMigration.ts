@@ -1,0 +1,1 @@
+export type BlueprintMigration = {id: number,template_id: number,subscription_id: number,user_id: number,workflow_state: string,created_at: string,exports_started_at: string,imports_queued_at: string,imports_completed_at: string,comment: string}

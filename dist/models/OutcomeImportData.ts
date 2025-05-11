@@ -1,0 +1,1 @@
+export type OutcomeImportData = {import_type: string}

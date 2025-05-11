@@ -1,0 +1,1 @@
+export type NewQuiz = {id: string,title: string,instructions: string,assignment_group_id: string,points_possible: number,due_at: string,lock_at: string,unlock_at: string,published: boolean,grading_type: string}

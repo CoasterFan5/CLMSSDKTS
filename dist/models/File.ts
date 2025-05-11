@@ -1,0 +1,1 @@
+export type File = {size: number,content-type: string,url: string,id: number,display_name: string,created_at: string,updated_at: string}

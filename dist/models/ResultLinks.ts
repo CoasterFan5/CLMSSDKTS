@@ -1,0 +1,1 @@
+export type ResultLinks = {user: string,assessor: string,assessment: string}

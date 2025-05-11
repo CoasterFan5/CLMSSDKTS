@@ -1,0 +1,1 @@
+export type UserAssignmentOverrideAttributes = {id: number,title: string,due_at: string,unlock_at?: string,lock_at?: string,students: unknown}

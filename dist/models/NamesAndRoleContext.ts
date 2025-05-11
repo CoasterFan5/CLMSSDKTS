@@ -1,0 +1,1 @@
+export type NamesAndRoleContext = {id: string,label: string,title: string}

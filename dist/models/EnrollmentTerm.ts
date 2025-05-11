@@ -1,0 +1,1 @@
+export type EnrollmentTerm = {id: number,sis_term_id: string,sis_import_id: number,name: string,start_at: string,end_at: string,workflow_state: string,overrides: object,course_count: number}

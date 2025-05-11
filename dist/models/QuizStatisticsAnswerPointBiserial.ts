@@ -1,0 +1,1 @@
+export type QuizStatisticsAnswerPointBiserial = {answer_id: number,point_biserial: number,correct: boolean,distractor: boolean}

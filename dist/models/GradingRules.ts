@@ -1,0 +1,1 @@
+export type GradingRules = {drop_lowest: number,drop_highest: number,never_drop: unknown}

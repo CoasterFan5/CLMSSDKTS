@@ -1,0 +1,1 @@
+export type Lti::Overlay = {title: string,description: string,custom_fields: object,target_link_uri: string,domain: string,privacy_level: string,oidc_initiation_url: string,disabled_scopes: unknown,disabled_placements: unknown,placements: object}

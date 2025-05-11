@@ -1,0 +1,1 @@
+export type CoursePace = {id: number,course_id: number,user_id: number,workflow_state: string,exclude_weekends: boolean,selected_days_to_skip: unknown,hard_end_dates: boolean,created_at: string,end_date: string,updated_at: string,published_at: string,root_account_id: number,start_date: string,modules: unknown}
