@@ -31,6 +31,11 @@ export const codeGen = async () => {
       throw newData.error;
     }
 
+    // lets do models now
+    for (const m in newData.data.models) {
+      const model = newData.data.models[m];
+    }
+
     for (const apiRoute of newData.data.apis) {
       for (const apiOperation of apiRoute.operations) {
         routesArrays[apiOperation.method].push(apiRoute.path);
