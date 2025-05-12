@@ -2,6 +2,7 @@
   const baseUrl = "/v1/accounts/{account_id}/rubrics/{id}/used_locations";
   import type {UsedLocations} from "../models/UsedLocations"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_courses_and_assignments_for_accounts = async (token: string, ba
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

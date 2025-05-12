@@ -2,6 +2,7 @@
   const baseUrl = "/lti/uuid_map";
   
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const download_uuid_mapping_for_this_sandbox = async (token: string, base
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

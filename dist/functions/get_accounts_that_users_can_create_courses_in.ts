@@ -2,6 +2,7 @@
   const baseUrl = "/v1/course_creation_accounts";
   import type {Account} from "../models/Account"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_accounts_that_users_can_create_courses_in = async (token: strin
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

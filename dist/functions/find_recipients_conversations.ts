@@ -2,6 +2,7 @@
   const baseUrl = "/v1/conversations/find_recipients";
   
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const find_recipients_conversations = async (token: string, baseUrl: stri
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

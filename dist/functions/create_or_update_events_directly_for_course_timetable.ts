@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/calendar_events/timetable_events";
   
 
+  const method = "POST"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const create_or_update_events_directly_for_course_timetable = async (toke
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

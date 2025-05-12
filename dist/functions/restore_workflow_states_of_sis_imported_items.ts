@@ -2,6 +2,7 @@
   const baseUrl = "/v1/accounts/{account_id}/sis_imports/{id}/restore_states";
   import type {Progress} from "../models/Progress"
 
+  const method = "PUT"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const restore_workflow_states_of_sis_imported_items = async (token: strin
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

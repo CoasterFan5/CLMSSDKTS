@@ -2,6 +2,7 @@
   const baseUrl = "/v1/users/{user_id}/content_shares/received";
   import type {ContentShare} from "../models/ContentShare"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const list_content_shares_received = async (token: string, baseUrl: strin
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

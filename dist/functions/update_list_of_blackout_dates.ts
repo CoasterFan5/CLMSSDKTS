@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/blackout_dates";
   import type {BlackoutDateTheresultwhichshouldmatchtheinputwithmaybesomedifferentIDs} from "../models/BlackoutDateTheresultwhichshouldmatchtheinputwithmaybesomedifferentIDs"
 
+  const method = "PUT"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const update_list_of_blackout_dates = async (token: string, baseUrl: stri
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

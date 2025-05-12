@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/assignments/{assignment_id}/moderated_students";
   import type {User} from "../models/User"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const list_students_selected_for_moderation = async (token: string, baseU
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

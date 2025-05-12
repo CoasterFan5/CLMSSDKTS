@@ -2,6 +2,7 @@
   const baseUrl = "/v1/accounts/{account_id}/analytics/terms/{term_id}/activity";
   
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_department_level_participation_data_terms = async (token: strin
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

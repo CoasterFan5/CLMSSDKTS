@@ -2,6 +2,7 @@
   const baseUrl = "/v1/folders/{id}/all";
   import type {Folder} from "../models/Folder"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const list_folders_and_files = async (token: string, baseUrl: string, par
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

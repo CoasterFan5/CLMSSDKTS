@@ -2,6 +2,7 @@
   const baseUrl = "/v1/users/{id}/graded_submissions";
   import type {Submission} from "../models/Submission"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_users_most_recently_graded_submissions = async (token: string, 
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

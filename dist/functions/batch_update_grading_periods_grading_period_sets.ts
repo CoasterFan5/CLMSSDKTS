@@ -2,6 +2,7 @@
   const baseUrl = "/v1/grading_period_sets/{set_id}/grading_periods/batch_update";
   
 
+  const method = "PATCH"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const batch_update_grading_periods_grading_period_sets = async (token: st
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

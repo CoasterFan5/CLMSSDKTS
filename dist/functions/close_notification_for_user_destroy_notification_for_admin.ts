@@ -2,6 +2,7 @@
   const baseUrl = "/v1/accounts/{account_id}/account_notifications/{id}";
   import type {AccountNotification} from "../models/AccountNotification"
 
+  const method = "DELETE"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const close_notification_for_user_destroy_notification_for_admin = async 
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

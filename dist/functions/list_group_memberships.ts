@@ -2,6 +2,7 @@
   const baseUrl = "/lti/groups/{group_id}/names_and_roles";
   import type {NamesAndRoleMemberships} from "../models/NamesAndRoleMemberships"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const list_group_memberships = async (token: string, baseUrl: string, par
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

@@ -2,6 +2,7 @@
   const baseUrl = "/lti/accounts/{account_id}";
   import type {Account} from "../models/Account"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_account = async (token: string, baseUrl: string, params: {
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

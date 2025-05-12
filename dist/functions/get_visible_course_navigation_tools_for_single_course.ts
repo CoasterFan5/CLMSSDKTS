@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/external_tools/visible_course_nav_tools";
   
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_visible_course_navigation_tools_for_single_course = async (toke
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/root_outcome_group";
   
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const redirect_to_root_outcome_group_for_context_courses = async (token: 
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

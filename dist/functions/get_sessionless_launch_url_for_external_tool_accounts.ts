@@ -2,6 +2,7 @@
   const baseUrl = "/v1/accounts/{account_id}/external_tools/sessionless_launch";
   
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_sessionless_launch_url_for_external_tool_accounts = async (toke
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

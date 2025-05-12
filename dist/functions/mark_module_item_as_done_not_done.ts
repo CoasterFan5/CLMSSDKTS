@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/modules/{module_id}/items/{id}/done";
   
 
+  const method = "PUT"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const mark_module_item_as_done_not_done = async (token: string, baseUrl: 
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

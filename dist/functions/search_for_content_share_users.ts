@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/content_share_users";
   import type {User} from "../models/User"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const search_for_content_share_users = async (token: string, baseUrl: str
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

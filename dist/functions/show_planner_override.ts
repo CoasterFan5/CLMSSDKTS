@@ -2,6 +2,7 @@
   const baseUrl = "/v1/planner/overrides/{id}";
   import type {PlannerOverride} from "../models/PlannerOverride"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const show_planner_override = async (token: string, baseUrl: string, para
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

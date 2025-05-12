@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/assignments/{assignment_id}/overrides/{id}";
   import type {AssignmentOverride} from "../models/AssignmentOverride"
 
+  const method = "PUT"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const update_assignment_override = async (token: string, baseUrl: string,
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

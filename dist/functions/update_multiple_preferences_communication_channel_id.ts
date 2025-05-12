@@ -2,6 +2,7 @@
   const baseUrl = "/v1/users/self/communication_channels/{communication_channel_id}/notification_preferences";
   
 
+  const method = "PUT"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const update_multiple_preferences_communication_channel_id = async (token
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

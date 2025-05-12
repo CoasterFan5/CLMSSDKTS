@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/quizzes/{quiz_id}/reports";
   import type {QuizReport} from "../models/QuizReport"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const retrieve_all_quiz_reports = async (token: string, baseUrl: string, 
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

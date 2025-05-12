@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/custom_gradebook_columns/reorder";
   
 
+  const method = "POST"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const reorder_custom_columns = async (token: string, baseUrl: string, par
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

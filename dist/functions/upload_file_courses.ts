@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/assignments/{assignment_id}/submissions/{user_id}/files";
   
 
+  const method = "POST"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const upload_file_courses = async (token: string, baseUrl: string, params
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

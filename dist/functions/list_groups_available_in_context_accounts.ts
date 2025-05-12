@@ -2,6 +2,7 @@
   const baseUrl = "/v1/accounts/{account_id}/groups";
   import type {Group} from "../models/Group"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const list_groups_available_in_context_accounts = async (token: string, b
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

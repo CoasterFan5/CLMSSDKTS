@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/assignments/{assignment_id}/provisional_grades/bulk_select";
   
 
+  const method = "PUT"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const bulk_select_provisional_grades = async (token: string, baseUrl: str
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

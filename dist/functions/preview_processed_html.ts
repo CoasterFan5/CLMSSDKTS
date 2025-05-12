@@ -2,6 +2,7 @@
   const baseUrl = "/v1/groups/{group_id}/preview_html";
   
 
+  const method = "POST"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const preview_processed_html = async (token: string, baseUrl: string, par
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

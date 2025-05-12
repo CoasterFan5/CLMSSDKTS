@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/outcome_alignments";
   import type {OutcomeAlignment} from "../models/OutcomeAlignment"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_aligned_assignments_for_outcome_in_course_for_particular_studen
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

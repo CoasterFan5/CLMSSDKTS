@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/quizzes/{id}";
   import type {Quiz} from "../models/Quiz"
 
+  const method = "DELETE"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const delete_quiz = async (token: string, baseUrl: string, params: {
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

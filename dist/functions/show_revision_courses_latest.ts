@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/pages/{url_or_id}/revisions/latest";
   import type {PageRevision} from "../models/PageRevision"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const show_revision_courses_latest = async (token: string, baseUrl: strin
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

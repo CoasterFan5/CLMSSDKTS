@@ -2,6 +2,7 @@
   const baseUrl = "/v1/accounts/{account_id}/rubrics/upload/{id}";
   import type {RubricImport} from "../models/RubricImport"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_status_of_rubric_import_accounts = async (token: string, baseUr
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

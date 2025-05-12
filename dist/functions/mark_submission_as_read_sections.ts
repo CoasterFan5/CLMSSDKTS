@@ -2,6 +2,7 @@
   const baseUrl = "/v1/sections/{section_id}/assignments/{assignment_id}/submissions/{user_id}/read";
   
 
+  const method = "PUT"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const mark_submission_as_read_sections = async (token: string, baseUrl: s
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

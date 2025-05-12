@@ -86,6 +86,7 @@ export const codeGen = async () => {
             url: apiRoute.path,
             params: apiOperation.parameters,
             returnType: getValidReturnType(apiOperation.type),
+            method: apiOperation.method,
             ref: apiOperation.items?.$ref
               ? getValidReturnType(apiOperation.items?.$ref)
               : "",

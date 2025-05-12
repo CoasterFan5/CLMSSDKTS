@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/folders/media";
   import type {Folder} from "../models/Folder"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_uploaded_media_folder_for_user_courses = async (token: string, 
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

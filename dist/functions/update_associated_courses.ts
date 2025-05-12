@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/blueprint_templates/{template_id}/update_associations";
   
 
+  const method = "PUT"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const update_associated_courses = async (token: string, baseUrl: string, 
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

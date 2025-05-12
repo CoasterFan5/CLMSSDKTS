@@ -2,6 +2,7 @@
   const baseUrl = "/v1/groups/{group_id}/memberships/{membership_id}";
   
 
+  const method = "DELETE"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const leave_group_memberships = async (token: string, baseUrl: string, pa
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

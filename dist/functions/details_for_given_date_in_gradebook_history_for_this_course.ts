@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/gradebook_history/{date}";
   import type {Grader} from "../models/Grader"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const details_for_given_date_in_gradebook_history_for_this_course = async
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

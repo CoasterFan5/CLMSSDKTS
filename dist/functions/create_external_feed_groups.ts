@@ -2,6 +2,7 @@
   const baseUrl = "/v1/groups/{group_id}/external_feeds";
   import type {ExternalFeed} from "../models/ExternalFeed"
 
+  const method = "POST"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const create_external_feed_groups = async (token: string, baseUrl: string
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

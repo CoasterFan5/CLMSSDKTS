@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/recent_students";
   import type {User} from "../models/User"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const list_recently_logged_in_students = async (token: string, baseUrl: s
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

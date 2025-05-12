@@ -2,6 +2,7 @@
   const baseUrl = "/v1/groups/{group_id}/discussion_topics/{topic_id}/duplicate";
   import type {DiscussionTopic} from "../models/DiscussionTopic"
 
+  const method = "POST"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const duplicate_discussion_topic_groups = async (token: string, baseUrl: 
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

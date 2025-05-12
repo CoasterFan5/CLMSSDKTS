@@ -2,6 +2,7 @@
   const baseUrl = "/v1/users/{id}/split";
   import type {User} from "../models/User"
 
+  const method = "POST"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const split_merged_users_into_separate_users = async (token: string, base
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

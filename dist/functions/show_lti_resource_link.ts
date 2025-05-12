@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/lti_resource_links/{id}";
   import type {LtiResourceLink} from "../models/LtiResourceLink"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const show_lti_resource_link = async (token: string, baseUrl: string, par
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

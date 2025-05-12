@@ -2,6 +2,7 @@
   const baseUrl = "/v1/sections/{section_id}/assignments/{assignment_id}/submissions/{submission_id}/peer_reviews";
   import type {PeerReview} from "../models/PeerReview"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_all_peer_reviews_sections_submissions = async (token: string, b
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/external_feeds/{external_feed_id}";
   import type {ExternalFeed} from "../models/ExternalFeed"
 
+  const method = "DELETE"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const delete_external_feed_courses = async (token: string, baseUrl: strin
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/features/flags/{feature}";
   import type {FeatureFlag} from "../models/FeatureFlag"
 
+  const method = "PUT"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const set_feature_flag_courses = async (token: string, baseUrl: string, p
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

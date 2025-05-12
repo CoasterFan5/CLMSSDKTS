@@ -2,6 +2,7 @@
   const baseUrl = "/v1/accounts/{account_id}/lti_registrations/{id}/bind";
   import type {LtiRegistrationAccountBinding} from "../models/LtiRegistrationAccountBinding"
 
+  const method = "POST"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const bind_lti_registration_to_account = async (token: string, baseUrl: s
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

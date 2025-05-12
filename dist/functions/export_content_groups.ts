@@ -2,6 +2,7 @@
   const baseUrl = "/v1/groups/{group_id}/content_exports";
   import type {ContentExport} from "../models/ContentExport"
 
+  const method = "POST"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const export_content_groups = async (token: string, baseUrl: string, para
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

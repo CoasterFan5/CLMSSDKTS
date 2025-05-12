@@ -2,6 +2,7 @@
   const baseUrl = "/v1/media_objects";
   import type {MediaObject} from "../models/MediaObject"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const list_media_objects_media_objects = async (token: string, baseUrl: s
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

@@ -2,6 +2,7 @@
   const baseUrl = "/v1/users/self/favorites/courses/{id}";
   import type {Favorite} from "../models/Favorite"
 
+  const method = "DELETE"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const remove_course_from_favorites = async (token: string, baseUrl: strin
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

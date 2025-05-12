@@ -2,6 +2,7 @@
   const baseUrl = "/v1/groups/{group_id}/discussion_topics/{topic_id}/summaries";
   
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const find_last_summary_groups = async (token: string, baseUrl: string, p
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

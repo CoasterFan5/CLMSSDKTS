@@ -2,6 +2,7 @@
   const baseUrl = "/v1/users/self/favorites/courses";
   import type {Course} from "../models/Course"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const list_favorite_courses = async (token: string, baseUrl: string, para
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

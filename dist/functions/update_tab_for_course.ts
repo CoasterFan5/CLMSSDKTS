@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/tabs/{tab_id}";
   import type {Tab} from "../models/Tab"
 
+  const method = "PUT"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const update_tab_for_course = async (token: string, baseUrl: string, para
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

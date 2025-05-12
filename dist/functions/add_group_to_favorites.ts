@@ -2,6 +2,7 @@
   const baseUrl = "/v1/users/self/favorites/groups/{id}";
   import type {Favorite} from "../models/Favorite"
 
+  const method = "POST"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const add_group_to_favorites = async (token: string, baseUrl: string, par
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

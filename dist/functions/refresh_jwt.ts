@@ -2,6 +2,7 @@
   const baseUrl = "/v1/jwts/refresh";
   import type {JWT} from "../models/JWT"
 
+  const method = "POST"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const refresh_jwt = async (token: string, baseUrl: string, params: {
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/blueprint_templates/{template_id}/migrations/{id}/details";
   import type {ChangeRecord} from "../models/ChangeRecord"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_migration_details = async (token: string, baseUrl: string, para
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

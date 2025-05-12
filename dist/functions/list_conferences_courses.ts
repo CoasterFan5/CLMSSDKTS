@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/conferences";
   import type {Conference} from "../models/Conference"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const list_conferences_courses = async (token: string, baseUrl: string, p
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

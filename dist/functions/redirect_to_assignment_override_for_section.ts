@@ -2,6 +2,7 @@
   const baseUrl = "/v1/sections/{course_section_id}/assignments/{assignment_id}/override";
   
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const redirect_to_assignment_override_for_section = async (token: string,
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

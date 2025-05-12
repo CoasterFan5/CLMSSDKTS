@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/pages/{url_or_id}/date_details";
   
 
+  const method = "PUT"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const update_learning_object_s_date_information_pages = async (token: str
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

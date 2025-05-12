@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/outcome_groups/{id}";
   import type {OutcomeGroup} from "../models/OutcomeGroup"
 
+  const method = "DELETE"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const delete_outcome_group_courses = async (token: string, baseUrl: strin
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

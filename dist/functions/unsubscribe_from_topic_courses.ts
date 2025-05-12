@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/discussion_topics/{topic_id}/subscribed";
   
 
+  const method = "DELETE"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const unsubscribe_from_topic_courses = async (token: string, baseUrl: str
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

@@ -2,6 +2,7 @@
   const baseUrl = "/v1/accounts/{account_id}/sis_import_errors";
   import type {SisImportError} from "../models/SisImportError"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_sis_import_error_list_sis_import_errors = async (token: string,
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

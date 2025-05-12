@@ -2,6 +2,7 @@
   const baseUrl = "/v1/accounts/{account_id}/sis_imports/{id}";
   import type {SisImport} from "../models/SisImport"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_sis_import_status = async (token: string, baseUrl: string, para
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

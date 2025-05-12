@@ -2,6 +2,7 @@
   const baseUrl = "/v1/users/{user_id}/observer_pairing_codes";
   import type {PairingCode} from "../models/PairingCode"
 
+  const method = "POST"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const create_observer_pairing_code = async (token: string, baseUrl: strin
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

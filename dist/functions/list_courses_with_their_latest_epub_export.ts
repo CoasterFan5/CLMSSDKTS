@@ -2,6 +2,7 @@
   const baseUrl = "/v1/epub_exports";
   import type {CourseEpubExport} from "../models/CourseEpubExport"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const list_courses_with_their_latest_epub_export = async (token: string, 
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

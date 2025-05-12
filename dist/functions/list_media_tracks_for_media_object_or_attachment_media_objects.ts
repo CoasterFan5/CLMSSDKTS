@@ -2,6 +2,7 @@
   const baseUrl = "/v1/media_objects/{media_object_id}/media_tracks";
   import type {MediaTrack} from "../models/MediaTrack"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const list_media_tracks_for_media_object_or_attachment_media_objects = as
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

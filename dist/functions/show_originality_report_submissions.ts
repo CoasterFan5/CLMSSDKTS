@@ -2,6 +2,7 @@
   const baseUrl = "/lti/assignments/{assignment_id}/submissions/{submission_id}/originality_report/{id}";
   import type {OriginalityReport} from "../models/OriginalityReport"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const show_originality_report_submissions = async (token: string, baseUrl
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

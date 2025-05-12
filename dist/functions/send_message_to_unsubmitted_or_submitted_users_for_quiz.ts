@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/quizzes/{id}/submission_users/message";
   
 
+  const method = "POST"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const send_message_to_unsubmitted_or_submitted_users_for_quiz = async (to
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

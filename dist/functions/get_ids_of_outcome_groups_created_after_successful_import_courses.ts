@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/outcome_imports/{id}/created_group_ids";
   import type {arrayofoutcomeids} from "../models/arrayofoutcomeids"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_ids_of_outcome_groups_created_after_successful_import_courses =
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

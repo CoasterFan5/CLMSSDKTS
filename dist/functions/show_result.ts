@@ -2,6 +2,7 @@
   const baseUrl = "/lti/courses/{course_id}/line_items/{line_item_id}/results/{id}";
   import type {Result} from "../models/Result"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const show_result = async (token: string, baseUrl: string, params: {
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

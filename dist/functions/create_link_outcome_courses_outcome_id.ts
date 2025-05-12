@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/outcome_groups/{id}/outcomes/{outcome_id}";
   import type {OutcomeLink} from "../models/OutcomeLink"
 
+  const method = "PUT"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const create_link_outcome_courses_outcome_id = async (token: string, base
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

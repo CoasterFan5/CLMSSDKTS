@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/custom_gradebook_columns/{id}/data";
   import type {ColumnDatum} from "../models/ColumnDatum"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const list_entries_for_column = async (token: string, baseUrl: string, pa
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

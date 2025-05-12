@@ -2,6 +2,7 @@
   const baseUrl = "/sis/courses/{course_id}/disable_post_to_sis";
   
 
+  const method = "PUT"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const disable_assignments_currently_enabled_for_grade_export_to_sis = asy
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

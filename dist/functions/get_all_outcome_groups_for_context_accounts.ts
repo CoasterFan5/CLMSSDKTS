@@ -2,6 +2,7 @@
   const baseUrl = "/v1/accounts/{account_id}/outcome_groups";
   import type {OutcomeGroup} from "../models/OutcomeGroup"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_all_outcome_groups_for_context_accounts = async (token: string,
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

@@ -2,6 +2,7 @@
   const baseUrl = "/v1/accounts/{account_id}/reports/{report}/{id}/abort";
   import type {Report} from "../models/Report"
 
+  const method = "PUT"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const abort_report = async (token: string, baseUrl: string, params: {
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

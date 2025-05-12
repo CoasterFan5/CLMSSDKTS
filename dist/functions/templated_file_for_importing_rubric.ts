@@ -2,6 +2,7 @@
   const baseUrl = "/v1/rubrics/upload_template";
   import type {aCSVfileintheformatthatcanbeimported} from "../models/aCSVfileintheformatthatcanbeimported"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const templated_file_for_importing_rubric = async (token: string, baseUrl
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

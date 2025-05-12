@@ -2,6 +2,7 @@
   const baseUrl = "/v1/accounts/{account_id}/outcome_proficiency";
   import type {Proficiency} from "../models/Proficiency"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_proficiency_ratings_accounts = async (token: string, baseUrl: s
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

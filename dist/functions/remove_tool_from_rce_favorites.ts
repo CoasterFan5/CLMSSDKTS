@@ -2,6 +2,7 @@
   const baseUrl = "/v1/accounts/{account_id}/external_tools/rce_favorites/{id}";
   
 
+  const method = "DELETE"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const remove_tool_from_rce_favorites = async (token: string, baseUrl: str
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

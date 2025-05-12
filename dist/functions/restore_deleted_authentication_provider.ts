@@ -2,6 +2,7 @@
   const baseUrl = "/v1/accounts/{account_id}/authentication_providers/{id}/restore";
   import type {AuthenticationProvider} from "../models/AuthenticationProvider"
 
+  const method = "PUT"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const restore_deleted_authentication_provider = async (token: string, bas
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

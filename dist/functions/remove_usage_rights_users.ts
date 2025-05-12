@@ -2,6 +2,7 @@
   const baseUrl = "/v1/users/{user_id}/usage_rights";
   
 
+  const method = "DELETE"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const remove_usage_rights_users = async (token: string, baseUrl: string, 
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

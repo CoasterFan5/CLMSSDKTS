@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/blueprint_templates/{template_id}/restrict_item";
   
 
+  const method = "PUT"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const set_or_remove_restrictions_on_blueprint_course_object = async (toke
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

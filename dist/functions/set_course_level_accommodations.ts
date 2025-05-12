@@ -2,6 +2,7 @@
   const baseUrl = "/quiz/v1/courses/{course_id}/accommodations";
   import type {AccommodationResponse} from "../models/AccommodationResponse"
 
+  const method = "POST"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const set_course_level_accommodations = async (token: string, baseUrl: st
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

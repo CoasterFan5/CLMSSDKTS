@@ -2,6 +2,7 @@
   const baseUrl = "/v1/groups/{group_id}/users/{user_id}";
   import type {GroupMembership} from "../models/GroupMembership"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_single_group_membership_users = async (token: string, baseUrl: 
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/analytics/student_summaries";
   
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_course_level_student_summary_data = async (token: string, baseU
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

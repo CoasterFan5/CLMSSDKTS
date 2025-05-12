@@ -2,6 +2,7 @@
   const baseUrl = "/v1/users/{user_id}/courses/{course_id}/assignments";
   
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const list_assignments_for_user = async (token: string, baseUrl: string, 
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

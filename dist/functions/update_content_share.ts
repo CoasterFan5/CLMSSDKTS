@@ -2,6 +2,7 @@
   const baseUrl = "/v1/users/{user_id}/content_shares/{id}";
   import type {ContentShare} from "../models/ContentShare"
 
+  const method = "PUT"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const update_content_share = async (token: string, baseUrl: string, param
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

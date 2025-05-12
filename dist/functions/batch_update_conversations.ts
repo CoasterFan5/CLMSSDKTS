@@ -2,6 +2,7 @@
   const baseUrl = "/v1/conversations";
   import type {Progress} from "../models/Progress"
 
+  const method = "PUT"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const batch_update_conversations = async (token: string, baseUrl: string,
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

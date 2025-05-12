@@ -2,6 +2,7 @@
   const baseUrl = "/v1/submissions/{id}/what_if_grades";
   import type {gradesGradessubmissionSubmission} from "../models/gradesGradessubmissionSubmission"
 
+  const method = "PUT"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const update_submission_s_what_if_score_and_calculate_grades = async (tok
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

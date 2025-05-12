@@ -2,6 +2,7 @@
   const baseUrl = "/v1/groups/{group_id}/content_migrations";
   import type {ContentMigration} from "../models/ContentMigration"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const list_content_migrations_groups = async (token: string, baseUrl: str
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

@@ -2,6 +2,7 @@
   const baseUrl = "/v1/users/{user_id}/temporary_enrollment_status";
   
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const show_temporary_enrollment_recipient_and_provider_status = async (to
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

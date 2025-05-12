@@ -31,6 +31,7 @@ export const buildFunction = (args: {
   name: string;
   url: string;
   params: typeof operationParams._type;
+  method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
   returnType: string;
   ref: string | undefined;
 }) => {
@@ -44,6 +45,7 @@ export const buildFunction = (args: {
   const baseUrl = "${args.url}";
   ${typeDetails.import}
 
+  const method = "${args.method}"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -59,6 +61,7 @@ export const ${args.name} = async (token: string, baseUrl: string, params: {
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

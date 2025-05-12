@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/blueprint_subscriptions/{subscription_id}/migrations";
   import type {BlueprintMigration} from "../models/BlueprintMigration"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const list_blueprint_imports = async (token: string, baseUrl: string, par
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

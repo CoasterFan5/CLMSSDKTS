@@ -2,6 +2,7 @@
   const baseUrl = "/v1/accounts/{account_id}/sso_settings";
   import type {SSOSettings} from "../models/SSOSettings"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const show_account_auth_settings = async (token: string, baseUrl: string,
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

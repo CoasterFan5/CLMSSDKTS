@@ -2,6 +2,7 @@
   const baseUrl = "/sis/courses/{course_id}/assignments";
   
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const retrieve_assignments_enabled_for_grade_export_to_sis_courses = asyn
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

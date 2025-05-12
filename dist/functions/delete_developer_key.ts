@@ -2,6 +2,7 @@
   const baseUrl = "/v1/developer_keys/{id}";
   import type {DeveloperKey} from "../models/DeveloperKey"
 
+  const method = "DELETE"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const delete_developer_key = async (token: string, baseUrl: string, param
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

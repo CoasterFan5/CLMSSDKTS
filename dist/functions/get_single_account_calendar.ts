@@ -2,6 +2,7 @@
   const baseUrl = "/v1/account_calendars/{account_id}";
   import type {AccountCalendar} from "../models/AccountCalendar"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_single_account_calendar = async (token: string, baseUrl: string
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

@@ -2,6 +2,7 @@
   const baseUrl = "/v1/accounts/{account_id}/csp_settings/lock";
   
 
+  const method = "PUT"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const lock_or_unlock_current_csp_settings_for_sub_accounts_and_courses = 
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

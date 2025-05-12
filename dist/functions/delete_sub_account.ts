@@ -2,6 +2,7 @@
   const baseUrl = "/v1/accounts/{account_id}/sub_accounts/{id}";
   import type {Account} from "../models/Account"
 
+  const method = "DELETE"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const delete_sub_account = async (token: string, baseUrl: string, params:
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

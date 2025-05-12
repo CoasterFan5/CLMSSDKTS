@@ -2,6 +2,7 @@
   const baseUrl = "/v1/users/{id}/merge_into/{destination_user_id}";
   import type {User} from "../models/User"
 
+  const method = "PUT"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const merge_user_into_another_user_destination_user_id = async (token: st
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

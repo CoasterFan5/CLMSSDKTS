@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/what_if_grades/reset";
   import type {gradesGrades} from "../models/gradesGrades"
 
+  const method = "PUT"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const reset_what_if_scores_for_current_user_for_entire_course_and_recalcu
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

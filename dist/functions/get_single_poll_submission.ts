@@ -2,6 +2,7 @@
   const baseUrl = "/v1/polls/{poll_id}/poll_sessions/{poll_session_id}/poll_submissions/{id}";
   
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_single_poll_submission = async (token: string, baseUrl: string,
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

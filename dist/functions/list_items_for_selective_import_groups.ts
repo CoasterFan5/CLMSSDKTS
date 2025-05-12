@@ -2,6 +2,7 @@
   const baseUrl = "/v1/groups/{group_id}/content_migrations/{id}/selective_data";
   import type {listofcontentitems} from "../models/listofcontentitems"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const list_items_for_selective_import_groups = async (token: string, base
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

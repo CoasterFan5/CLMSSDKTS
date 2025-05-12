@@ -2,6 +2,7 @@
   const baseUrl = "/v1/accounts/{account_id}/outcome_groups/{id}/outcomes/{outcome_id}";
   import type {OutcomeLink} from "../models/OutcomeLink"
 
+  const method = "DELETE"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const unlink_outcome_accounts = async (token: string, baseUrl: string, pa
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

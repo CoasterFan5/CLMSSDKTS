@@ -2,6 +2,7 @@
   const baseUrl = "/v1/users/{user_id}/communication_channels/{communication_channel_id}/notification_preferences";
   import type {NotificationPreference} from "../models/NotificationPreference"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const list_preferences_communication_channel_id = async (token: string, b
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

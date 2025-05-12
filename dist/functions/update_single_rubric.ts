@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/rubrics/{id}";
   
 
+  const method = "PUT"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const update_single_rubric = async (token: string, baseUrl: string, param
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

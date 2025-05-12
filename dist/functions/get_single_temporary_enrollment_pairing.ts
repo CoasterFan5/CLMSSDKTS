@@ -2,6 +2,7 @@
   const baseUrl = "/v1/accounts/{account_id}/temporary_enrollment_pairings/{id}";
   import type {TemporaryEnrollmentPairing} from "../models/TemporaryEnrollmentPairing"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_single_temporary_enrollment_pairing = async (token: string, bas
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

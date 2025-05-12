@@ -2,6 +2,7 @@
   const baseUrl = "/v1/accounts/{account_id}/visible_calendars_count";
   import type {countinteger} from "../models/countinteger"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const count_of_all_visible_account_calendars = async (token: string, base
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

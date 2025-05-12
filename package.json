@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "convert": "api-spec-converter --from=swagger_1 --to=swagger_2 ./swagger > swagger-2.0-spec.json",
     "generate": "tsx ./src/index.ts",
-    "dev": "pnpm run generate && tsx ./examples/index.ts"
+    "dev": "pnpm run generate && dotenvx run -- tsx ./examples/index.ts"
   },
   "keywords": [],
   "author": "",

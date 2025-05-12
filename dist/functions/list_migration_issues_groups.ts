@@ -2,6 +2,7 @@
   const baseUrl = "/v1/groups/{group_id}/content_migrations/{content_migration_id}/migration_issues";
   import type {MigrationIssue} from "../models/MigrationIssue"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const list_migration_issues_groups = async (token: string, baseUrl: strin
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

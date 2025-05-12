@@ -2,6 +2,7 @@
   const baseUrl = "/v1/sections/{section_id}/assignments/{assignment_id}/anonymous_submissions/{anonymous_id}";
   
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_single_submission_by_anonymous_id_sections = async (token: stri
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

@@ -2,6 +2,7 @@
   const baseUrl = "/v1/accounts/{account_id}/terms_of_service";
   import type {TermsOfService} from "../models/TermsOfService"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_terms_of_service = async (token: string, baseUrl: string, param
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

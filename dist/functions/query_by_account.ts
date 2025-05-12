@@ -2,6 +2,7 @@
   const baseUrl = "/v1/audit/course/accounts/{account_id}";
   import type {CourseEvent} from "../models/CourseEvent"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const query_by_account = async (token: string, baseUrl: string, params: {
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

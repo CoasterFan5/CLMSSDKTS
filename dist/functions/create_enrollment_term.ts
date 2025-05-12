@@ -2,6 +2,7 @@
   const baseUrl = "/v1/accounts/{account_id}/terms";
   import type {EnrollmentTerm} from "../models/EnrollmentTerm"
 
+  const method = "POST"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const create_enrollment_term = async (token: string, baseUrl: string, par
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

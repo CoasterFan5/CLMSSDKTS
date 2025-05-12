@@ -2,6 +2,7 @@
   const baseUrl = "/v1/users/{user_id}/communication_channels";
   import type {CommunicationChannel} from "../models/CommunicationChannel"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const list_user_communication_channels = async (token: string, baseUrl: s
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/custom_gradebook_columns/{id}";
   import type {CustomColumn} from "../models/CustomColumn"
 
+  const method = "DELETE"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const delete_custom_gradebook_column = async (token: string, baseUrl: str
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

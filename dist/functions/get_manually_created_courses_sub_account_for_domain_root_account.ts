@@ -2,6 +2,7 @@
   const baseUrl = "/v1/manually_created_courses_account";
   import type {Account} from "../models/Account"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_manually_created_courses_sub_account_for_domain_root_account = 
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

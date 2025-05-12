@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/users/{user_id}/last_attended";
   import type {Enrollment} from "../models/Enrollment"
 
+  const method = "PUT"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const add_last_attended_date = async (token: string, baseUrl: string, par
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

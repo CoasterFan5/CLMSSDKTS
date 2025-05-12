@@ -2,6 +2,7 @@
   const baseUrl = "/v1/quiz_submissions/{quiz_submission_id}/questions/{id}/formatted_answer";
   
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_formatted_student_numerical_answer = async (token: string, base
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

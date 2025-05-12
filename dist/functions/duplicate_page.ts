@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/pages/{url_or_id}/duplicate";
   import type {Page} from "../models/Page"
 
+  const method = "POST"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const duplicate_page = async (token: string, baseUrl: string, params: {
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

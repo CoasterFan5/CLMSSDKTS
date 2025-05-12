@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/discussion_topics";
   import type {DiscussionTopic} from "../models/DiscussionTopic"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const list_discussion_topics_courses = async (token: string, baseUrl: str
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

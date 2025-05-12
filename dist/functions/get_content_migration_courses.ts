@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/content_migrations/{id}";
   import type {ContentMigration} from "../models/ContentMigration"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_content_migration_courses = async (token: string, baseUrl: stri
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

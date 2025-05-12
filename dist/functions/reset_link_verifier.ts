@@ -2,6 +2,7 @@
   const baseUrl = "/v1/files/{id}/reset_verifier";
   import type {File} from "../models/File"
 
+  const method = "POST"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const reset_link_verifier = async (token: string, baseUrl: string, params
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

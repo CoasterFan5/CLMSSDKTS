@@ -2,6 +2,7 @@
   const baseUrl = "/lti/assignments/{assignment_id}";
   import type {LtiAssignment} from "../models/LtiAssignment"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_single_assignment_lti = async (token: string, baseUrl: string, 
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

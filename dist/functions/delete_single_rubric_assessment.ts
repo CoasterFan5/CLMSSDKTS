@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/rubric_associations/{rubric_association_id}/rubric_assessments/{id}";
   import type {RubricAssessment} from "../models/RubricAssessment"
 
+  const method = "DELETE"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const delete_single_rubric_assessment = async (token: string, baseUrl: st
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

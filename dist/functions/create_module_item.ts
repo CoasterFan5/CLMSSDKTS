@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/modules/{module_id}/items";
   import type {ModuleItem} from "../models/ModuleItem"
 
+  const method = "POST"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const create_module_item = async (token: string, baseUrl: string, params:
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

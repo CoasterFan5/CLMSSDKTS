@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/pages/{url_or_id}/revisions/{revision_id}";
   import type {PageRevision} from "../models/PageRevision"
 
+  const method = "POST"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const revert_to_revision_courses = async (token: string, baseUrl: string,
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

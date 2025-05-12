@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/assignment_groups/{assignment_group_id}/assignments";
   import type {Assignment} from "../models/Assignment"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const list_assignments_assignment_groups = async (token: string, baseUrl:
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

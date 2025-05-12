@@ -2,6 +2,7 @@
   const baseUrl = "/v1/users/self/pandata_events_token";
   
 
+  const method = "POST"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_pandata_events_jwt_token_and_its_expiration_date = async (token
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

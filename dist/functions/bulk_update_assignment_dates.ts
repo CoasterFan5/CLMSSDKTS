@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/assignments/bulk_update";
   import type {Progress} from "../models/Progress"
 
+  const method = "PUT"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const bulk_update_assignment_dates = async (token: string, baseUrl: strin
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

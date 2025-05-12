@@ -2,6 +2,7 @@
   const baseUrl = "/v1/accounts/{account_id}/account_notifications";
   import type {AccountNotification} from "../models/AccountNotification"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const index_of_active_global_notification_for_user = async (token: string
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

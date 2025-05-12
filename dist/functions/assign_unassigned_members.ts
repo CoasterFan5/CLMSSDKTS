@@ -2,6 +2,7 @@
   const baseUrl = "/v1/group_categories/{group_category_id}/assign_unassigned_members";
   import type {GroupMembershipProgress} from "../models/GroupMembershipProgress"
 
+  const method = "POST"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const assign_unassigned_members = async (token: string, baseUrl: string, 
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

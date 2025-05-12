@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/grading_standards";
   import type {GradingStandard} from "../models/GradingStandard"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const list_grading_standards_available_in_context_courses = async (token:
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

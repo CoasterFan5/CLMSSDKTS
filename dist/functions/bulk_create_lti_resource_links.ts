@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/lti_resource_links/bulk";
   import type {LtiResourceLink} from "../models/LtiResourceLink"
 
+  const method = "POST"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const bulk_create_lti_resource_links = async (token: string, baseUrl: str
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

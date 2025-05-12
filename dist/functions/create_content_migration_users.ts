@@ -2,6 +2,7 @@
   const baseUrl = "/v1/users/{user_id}/content_migrations";
   import type {ContentMigration} from "../models/ContentMigration"
 
+  const method = "POST"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const create_content_migration_users = async (token: string, baseUrl: str
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

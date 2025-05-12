@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/pages/{url_or_id}/date_details";
   import type {LearningObjectDates} from "../models/LearningObjectDates"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_learning_object_s_date_information_pages = async (token: string
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

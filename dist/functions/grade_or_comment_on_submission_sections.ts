@@ -2,6 +2,7 @@
   const baseUrl = "/v1/sections/{section_id}/assignments/{assignment_id}/submissions/{user_id}";
   
 
+  const method = "PUT"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const grade_or_comment_on_submission_sections = async (token: string, bas
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/folders/by_path/*full_path";
   import type {Folder} from "../models/Folder"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const resolve_path_courses_full_path = async (token: string, baseUrl: str
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

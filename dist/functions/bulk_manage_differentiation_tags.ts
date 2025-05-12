@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/group_categories/bulk_manage_differentiation_tag";
   import type {GroupCategoryandgroupsoperationresults} from "../models/GroupCategoryandgroupsoperationresults"
 
+  const method = "POST"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const bulk_manage_differentiation_tags = async (token: string, baseUrl: s
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

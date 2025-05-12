@@ -2,6 +2,7 @@
   const baseUrl = "/v1/accounts/{account_id}/sub_accounts";
   import type {Account} from "../models/Account"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_sub_accounts_of_account = async (token: string, baseUrl: string
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

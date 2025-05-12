@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/discussion_topics/{topic_id}/entries/{entry_id}/rating";
   
 
+  const method = "POST"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const rate_entry_courses = async (token: string, baseUrl: string, params:
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

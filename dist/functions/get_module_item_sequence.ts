@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/module_item_sequence";
   import type {ModuleItemSequence} from "../models/ModuleItemSequence"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_module_item_sequence = async (token: string, baseUrl: string, p
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

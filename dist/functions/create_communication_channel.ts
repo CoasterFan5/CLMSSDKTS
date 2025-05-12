@@ -2,6 +2,7 @@
   const baseUrl = "/v1/users/{user_id}/communication_channels";
   import type {CommunicationChannel} from "../models/CommunicationChannel"
 
+  const method = "POST"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const create_communication_channel = async (token: string, baseUrl: strin
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

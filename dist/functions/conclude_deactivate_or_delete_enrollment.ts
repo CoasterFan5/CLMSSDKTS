@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/enrollments/{id}";
   import type {Enrollment} from "../models/Enrollment"
 
+  const method = "DELETE"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const conclude_deactivate_or_delete_enrollment = async (token: string, ba
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

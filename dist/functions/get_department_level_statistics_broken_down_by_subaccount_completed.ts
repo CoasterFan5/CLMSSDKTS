@@ -2,6 +2,7 @@
   const baseUrl = "/v1/accounts/{account_id}/analytics/completed/statistics_by_subaccount";
   
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const get_department_level_statistics_broken_down_by_subaccount_completed
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

@@ -2,6 +2,7 @@
   const baseUrl = "/v1/global/outcome_groups/{id}/import";
   import type {OutcomeGroup} from "../models/OutcomeGroup"
 
+  const method = "POST"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const import_outcome_group_global = async (token: string, baseUrl: string
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

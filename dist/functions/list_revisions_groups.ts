@@ -2,6 +2,7 @@
   const baseUrl = "/v1/groups/{group_id}/pages/{url_or_id}/revisions";
   import type {PageRevision} from "../models/PageRevision"
 
+  const method = "GET"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const list_revisions_groups = async (token: string, baseUrl: string, para
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }

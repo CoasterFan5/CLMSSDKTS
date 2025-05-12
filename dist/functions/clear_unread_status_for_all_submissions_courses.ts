@@ -2,6 +2,7 @@
   const baseUrl = "/v1/courses/{course_id}/submissions/{user_id}/clear_unread";
   
 
+  const method = "PUT"
 
   const urlBuilder = (base: string, items: Record<string, unknown>) => {
     let newUrl = baseUrl
@@ -17,6 +18,7 @@ export const clear_unread_status_for_all_submissions_courses = async (token: str
 }) => {
   console.log(token)
   const r = await fetch(urlBuilder(baseUrl, params), {
+    method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
