@@ -1,8 +1,21 @@
 // codegen time baby
 import fs, { readdir } from "fs/promises";
 import { swaggerLikeFormat } from "./swaggerLikeFormat";
-
+import { snakeToCamelCase } from "./snakeToCamel";
 const skipList = ["index.json"];
+
+const typesMap: Record<string, string> = {
+  integer: "number",
+  "string|User": "string",
+  number: "number",
+  uuid: "string",
+  string: "string",
+  boolean: "boolean",
+  object: "object",
+  array: "unknown",
+  date: "Date",
+  void: "void",
+};
 
 export const codeGen = async () => {
   // lets load all the files, because that seems smart
@@ -31,19 +44,6 @@ export const codeGen = async () => {
       throw newData.error;
     }
 
-    const typesMap: Record<string, string> = {
-      integer: "number",
-      "string|User": "string",
-      number: "number",
-      uuid: "string",
-      string: "string",
-      boolean: "boolean",
-      object: "object",
-      array: "unknown",
-      date: "Date",
-      void: "void",
-    };
-
     // lets do models now
     for (const m in newData.data.models) {
       const model = newData.data.models[m];
@@ -69,6 +69,8 @@ export const codeGen = async () => {
     for (const apiRoute of newData.data.apis) {
       for (const apiOperation of apiRoute.operations) {
         routesArrays[apiOperation.method].push(apiRoute.path);
+        const newName = snakeToCamelCase(apiOperation.nickname);
+        fs.writeFile(`./dist/functions/${newName}.ts`, "");
       }
     }
   }
