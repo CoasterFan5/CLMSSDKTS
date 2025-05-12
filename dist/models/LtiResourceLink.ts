@@ -1,0 +1,1 @@
+export type LtiResourceLink = {id: number,context_id: number,context_type: string,context_external_tool_id: number,resource_type: string,canvas_launch_url: string,resource_link_uuid: string,lookup_uuid: string,title: string,url: string,lti_1_1_id: string,created_at: string,updated_at: string,workflow_state: string,associated_content_type: string,associated_content_id: number}

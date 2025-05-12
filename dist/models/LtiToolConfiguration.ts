@@ -1,0 +1,1 @@
+export type LtiToolConfiguration = {title: string,description: string,custom_fields: object,target_link_uri: string,domain: string,tool_id: string,privacy_level: string,oidc_initiation_url: string,oidc_initiation_urls: object,public_jwk: object,public_jwk_url: string,scopes: unknown,redirect_uris: unknown,placements: unknown}

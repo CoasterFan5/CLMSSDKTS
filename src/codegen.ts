@@ -2,6 +2,8 @@
 import fs, { readdir } from "fs/promises";
 import { swaggerLikeFormat } from "./swaggerLikeFormat";
 import { snakeToCamelCase } from "./snakeToCamel";
+import { buildFunction } from "./functionBuilder";
+import { createIndexFile } from "./builtMethodManager";
 const skipList = ["index.json"];
 
 const typesMap: Record<string, string> = {
@@ -33,6 +35,10 @@ export const codeGen = async () => {
     DELETE: [],
   };
 
+  const getValidReturnType = (returnType: string) => {
+    return returnType.replaceAll(/[^a-zA-Z]/g, "");
+  };
+
   const dir = await fs.readdir("./swagger");
   for (const fileName of dir) {
     if (skipList.includes(fileName)) {
@@ -48,7 +54,7 @@ export const codeGen = async () => {
     for (const m in newData.data.models) {
       const model = newData.data.models[m];
 
-      let builtModel = `export type ${model.id} = {`;
+      let builtModel = `export type ${getValidReturnType(model.id)} = {`;
       // model builder pt 1
       let propDetailsArray = [];
       for (const propId in model.properties) {
@@ -61,7 +67,10 @@ export const codeGen = async () => {
       }
       builtModel += propDetailsArray.join(",");
       builtModel += `}`;
-      await fs.writeFile(`./dist/models/${model.id}.ts`, builtModel);
+      await fs.writeFile(
+        `./dist/models/${getValidReturnType(model.id)}.ts`,
+        builtModel,
+      );
     }
 
     // the actual routes
@@ -69,43 +78,22 @@ export const codeGen = async () => {
     for (const apiRoute of newData.data.apis) {
       for (const apiOperation of apiRoute.operations) {
         routesArrays[apiOperation.method].push(apiRoute.path);
-        const newName = snakeToCamelCase(apiOperation.nickname);
-        fs.writeFile(`./dist/functions/${newName}.ts`, "");
+        const newName = apiOperation.nickname;
+        fs.writeFile(
+          `./dist/functions/${newName}.ts`,
+          buildFunction({
+            name: newName,
+            url: apiRoute.path,
+            params: apiOperation.parameters,
+            returnType: getValidReturnType(apiOperation.type),
+            ref: apiOperation.items?.$ref
+              ? getValidReturnType(apiOperation.items?.$ref)
+              : "",
+          }),
+        );
       }
     }
   }
 
-  const replaceVars: Record<string, string> = {};
-  replaceVars["GET_ROUTES"] = routesArrays["GET"]
-    .map((item) => `"${item}"`)
-    .join(",");
-  replaceVars["POST_ROUTES"] = routesArrays["POST"]
-    .map((item) => `"${item}"`)
-    .join(",");
-  replaceVars["PUT_ROUTES"] = routesArrays["PUT"]
-    .map((item) => `"${item}"`)
-    .join(",");
-  replaceVars["PATCH_ROUTES"] = routesArrays["PATCH"]
-    .map((item) => `"${item}"`)
-    .join(",");
-  replaceVars["DELETE_ROUTES"] = routesArrays["DELETE"]
-    .map((item) => `"${item}"`)
-    .join(",");
-
-  // Update the methods page
-  const dirReading = await readdir("./dist/methods");
-  for (const fileName of dirReading) {
-    const fileArray = fileName.split(".");
-    if (fileArray[1] == "schema") {
-      let fileData = (
-        await fs.readFile(`./dist/methods/${fileName}`)
-      ).toString();
-
-      for (const rv in replaceVars) {
-        fileData = fileData.replaceAll(`{{${rv}}}`, replaceVars[rv]);
-      }
-
-      await fs.writeFile(`./dist/methods/${fileArray[0]}.ts`, fileData);
-    }
-  }
+  await createIndexFile();
 };

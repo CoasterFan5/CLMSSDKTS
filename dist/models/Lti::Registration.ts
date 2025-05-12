@@ -1,1 +1,0 @@
-export type Lti::Registration = {id: number,name: string,admin_nickname: string,icon_url: string,vendor: string,account_id: number,internal_service: boolean,inherited: boolean,lti_version: string,dynamic_registration: boolean,workflow_state: string,created_at: string,updated_at: string,created_by: string,updated_by: string,root_account_id: number}

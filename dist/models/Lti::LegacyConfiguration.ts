@@ -1,1 +1,0 @@
-export type Lti::LegacyConfiguration = {title: string,description: string,custom_fields: object,target_link_uri: string,oidc_initiation_url: string,oidc_initiation_urls: object,public_jwk: object,public_jwk_url: string,scopes: unknown,extensions: unknown}

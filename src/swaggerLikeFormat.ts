@@ -31,6 +31,17 @@ const modelsZod = z.object({
     .nullable(),
 });
 
+export const operationParams = z.array(
+  z.object({
+    paramType: z.string(),
+    name: z.string(),
+    description: z.string(),
+    type: z.string(),
+    required: z.boolean(),
+    deprecated: z.boolean(),
+  }),
+);
+
 export const swaggerLikeFormat = z.object({
   apiVersion: z.string(),
   swaggerVersion: z.string(),
@@ -47,19 +58,15 @@ export const swaggerLikeFormat = z.object({
           summary: z.string(),
           notes: z.string(),
           nickname: z.string(),
-          parameters: z.array(
-            z.object({
-              paramType: z.string(),
-              name: z.string(),
-              description: z.string(),
-              type: z.string(),
-              required: z.boolean(),
-              deprecated: z.boolean(),
-            }),
-          ),
+          parameters: operationParams,
           deprecated: z.boolean(),
           deprecated_description: z.string().optional(),
           type: z.string(),
+          items: z
+            .object({
+              $ref: z.string(),
+            })
+            .optional(),
         }),
       ),
     }),

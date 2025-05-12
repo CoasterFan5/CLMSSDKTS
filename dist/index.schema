@@ -1,0 +1,15 @@
+{{imports}}
+
+export class CanvasLMS {
+  token: string;
+  domain: string;
+
+  constructor(args: { domain: string; accessToken: string }) {
+    this.token = args.accessToken;
+    this.domain = args.domain;
+  }
+
+  {{built_methods}}
+
+
+}

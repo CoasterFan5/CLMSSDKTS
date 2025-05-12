@@ -1,0 +1,1 @@
+export type LtiLaunchDefinition = {definition_type: string,definition_id: string,name: string,description: string,url: string,domain: string,placements: object}
