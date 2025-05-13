@@ -16,15 +16,14 @@
 export const set_quiz_level_accommodations = async (token: string, baseUrl: string, params: {
   "course_id": string;"assignment_id": number;"user_id": number;"extra_time"?: number;"extra_attempts"?: number;"reduce_choices_enabled"?: boolean
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as AccommodationResponse

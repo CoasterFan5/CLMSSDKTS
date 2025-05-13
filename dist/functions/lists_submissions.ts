@@ -16,15 +16,14 @@
 export const lists_submissions = async (token: string, baseUrl: string, params: {
   "course_id": number;"date": string;"grader_id": number;"assignment_id": number
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as SubmissionHistory[]

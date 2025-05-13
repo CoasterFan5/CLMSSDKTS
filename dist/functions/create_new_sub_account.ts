@@ -16,15 +16,14 @@
 export const create_new_sub_account = async (token: string, baseUrl: string, params: {
   "account_id": string;"account[name]": string;"account[sis_account_id]"?: string;"account[default_storage_quota_mb]"?: number;"account[default_user_storage_quota_mb]"?: number;"account[default_group_storage_quota_mb]"?: number
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as Account

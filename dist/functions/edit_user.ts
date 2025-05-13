@@ -16,15 +16,14 @@
 export const edit_user = async (token: string, baseUrl: string, params: {
   "id": string;"user[name]"?: string;"user[short_name]"?: string;"user[sortable_name]"?: string;"user[time_zone]"?: string;"user[email]"?: string;"user[locale]"?: string;"user[avatar][token]"?: string;"user[avatar][url]"?: string;"user[avatar][state]"?: string;"user[title]"?: string;"user[bio]"?: string;"user[pronunciation]"?: string;"user[pronouns]"?: string;"user[event]"?: string;"override_sis_stickiness"?: boolean
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as User

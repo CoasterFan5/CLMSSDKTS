@@ -16,15 +16,14 @@
 export const create_developer_key = async (token: string, baseUrl: string, params: {
   "account_id": string;"developer_key": undefined;"developer_key[auto_expire_tokens]"?: boolean;"developer_key[email]"?: string;"developer_key[icon_url]"?: string;"developer_key[name]"?: string;"developer_key[notes]"?: string;"developer_key[redirect_uri]"?: string;"developer_key[redirect_uris]"?: unknown;"developer_key[vendor_code]"?: string;"developer_key[visible]"?: boolean;"developer_key[test_cluster_only]"?: boolean;"developer_key[client_credentials_audience]"?: string;"developer_key[scopes]"?: unknown;"developer_key[require_scopes]"?: boolean;"developer_key[allow_includes]"?: boolean
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as DeveloperKey

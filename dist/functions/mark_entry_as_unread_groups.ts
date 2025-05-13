@@ -16,15 +16,14 @@
 export const mark_entry_as_unread_groups = async (token: string, baseUrl: string, params: {
   "group_id": string;"topic_id": string;"entry_id": string;"forced_read_state"?: boolean
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as void

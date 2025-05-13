@@ -16,15 +16,14 @@
 export const edit_conversation = async (token: string, baseUrl: string, params: {
   "id": string;"conversation[workflow_state]"?: string;"conversation[subscribed]"?: boolean;"conversation[starred]"?: boolean;"scope"?: string;"filter"?: unknown;"filter_mode"?: string
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as void

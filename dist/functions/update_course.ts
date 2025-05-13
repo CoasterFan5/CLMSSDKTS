@@ -16,15 +16,14 @@
 export const update_course = async (token: string, baseUrl: string, params: {
   "id": string;"course[account_id]"?: number;"course[name]"?: string;"course[course_code]"?: string;"course[start_at]"?: undefined;"course[end_at]"?: undefined;"course[license]"?: string;"course[is_public]"?: boolean;"course[is_public_to_auth_users]"?: boolean;"course[public_syllabus]"?: boolean;"course[public_syllabus_to_auth]"?: boolean;"course[public_description]"?: string;"course[allow_student_wiki_edits]"?: boolean;"course[allow_wiki_comments]"?: boolean;"course[allow_student_forum_attachments]"?: boolean;"course[open_enrollment]"?: boolean;"course[self_enrollment]"?: boolean;"course[restrict_enrollments_to_course_dates]"?: boolean;"course[term_id]"?: number;"course[sis_course_id]"?: string;"course[integration_id]"?: string;"course[hide_final_grades]"?: boolean;"course[time_zone]"?: string;"course[apply_assignment_group_weights]"?: boolean;"course[storage_quota_mb]"?: number;"offer"?: boolean;"course[event]"?: string;"course[default_view]"?: string;"course[syllabus_body]"?: string;"course[syllabus_course_summary]"?: boolean;"course[grading_standard_id]"?: number;"course[grade_passback_setting]"?: string;"course[course_format]"?: string;"course[image_id]"?: number;"course[image_url]"?: string;"course[remove_image]"?: boolean;"course[remove_banner_image]"?: boolean;"course[blueprint]"?: boolean;"course[blueprint_restrictions]"?: undefined;"course[use_blueprint_restrictions_by_object_type]"?: boolean;"course[blueprint_restrictions_by_object_type]"?: undefined;"course[homeroom_course]"?: boolean;"course[sync_enrollments_from_homeroom]"?: string;"course[homeroom_course_id]"?: string;"course[template]"?: boolean;"course[course_color]"?: string;"course[friendly_name]"?: string;"course[enable_course_paces]"?: boolean;"course[conditional_release]"?: boolean;"course[post_manually]"?: boolean;"override_sis_stickiness"?: boolean
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as void

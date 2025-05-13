@@ -16,15 +16,14 @@
 export const begin_migration_to_push_to_associated_courses = async (token: string, baseUrl: string, params: {
   "course_id": string;"template_id": string;"comment"?: string;"send_notification"?: boolean;"copy_settings"?: boolean;"send_item_notifications"?: boolean;"publish_after_initial_sync"?: boolean
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as BlueprintMigration

@@ -16,15 +16,14 @@
 export const update_user_settings = async (token: string, baseUrl: string, params: {
   "id": string;"manual_mark_as_read"?: boolean;"release_notes_badge_disabled"?: boolean;"collapse_global_nav"?: boolean;"collapse_course_nav"?: boolean;"hide_dashcard_color_overlays"?: boolean;"comment_library_suggestions_enabled"?: boolean;"elementary_dashboard_disabled"?: boolean
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as void

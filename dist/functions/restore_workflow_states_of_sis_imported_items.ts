@@ -16,15 +16,14 @@
 export const restore_workflow_states_of_sis_imported_items = async (token: string, baseUrl: string, params: {
   "account_id": string;"id": string;"batch_mode"?: boolean;"undelete_only"?: boolean;"unconclude_only"?: boolean
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as Progress

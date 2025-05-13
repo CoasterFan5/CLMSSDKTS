@@ -16,15 +16,14 @@
 export const create_update_proficiency_ratings_courses = async (token: string, baseUrl: string, params: {
   "course_id": string;"ratings[description]"?: unknown;"ratings[points]"?: unknown;"ratings[mastery]"?: unknown;"ratings[color]"?: unknown
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as Proficiency

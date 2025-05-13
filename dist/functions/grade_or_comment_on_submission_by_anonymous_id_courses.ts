@@ -16,15 +16,14 @@
 export const grade_or_comment_on_submission_by_anonymous_id_courses = async (token: string, baseUrl: string, params: {
   "course_id": string;"assignment_id": string;"anonymous_id": string;"comment[text_comment]"?: string;"comment[group_comment]"?: boolean;"comment[media_comment_id]"?: string;"comment[media_comment_type]"?: string;"comment[file_ids]"?: unknown;"include[visibility]"?: string;"submission[posted_grade]"?: string;"submission[excuse]"?: boolean;"submission[late_policy_status]"?: string;"submission[seconds_late_override]"?: number;"rubric_assessment"?: undefined
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as void

@@ -16,15 +16,14 @@
 export const list_users_in_course_users = async (token: string, baseUrl: string, params: {
   "course_id": string;"search_term"?: string;"sort"?: string;"enrollment_type"?: unknown;"enrollment_role"?: string;"enrollment_role_id"?: number;"include"?: unknown;"user_id"?: string;"user_ids"?: unknown;"enrollment_state"?: unknown
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as User[]

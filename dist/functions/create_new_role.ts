@@ -16,15 +16,14 @@
 export const create_new_role = async (token: string, baseUrl: string, params: {
   "account_id": string;"label": string;"role"?: string;"base_role_type"?: string;"permissions[<X>][explicit]"?: boolean;"permissions[<X>][enabled]"?: boolean;"permissions[<X>][locked]"?: boolean;"permissions[<X>][applies_to_self]"?: boolean;"permissions[<X>][applies_to_descendants]"?: boolean
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as Role

@@ -16,15 +16,14 @@
 export const update_lti_registration = async (token: string, baseUrl: string, params: {
   "account_id": string;"id": string;"name"?: string;"admin_nickname"?: string;"description"?: string;"configuration"?: string;"overlay"?: string;"workflow_state"?: string
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as LtiRegistration

@@ -16,15 +16,14 @@
 export const create_content_migration_users = async (token: string, baseUrl: string, params: {
   "user_id": string;"migration_type": string;"pre_attachment[name]"?: string;"pre_attachment[*]"?: string;"settings[file_url]"?: string;"settings[content_export_id]"?: string;"settings[source_course_id]"?: string;"settings[folder_id]"?: string;"settings[overwrite_quizzes]"?: boolean;"settings[question_bank_id]"?: number;"settings[question_bank_name]"?: string;"settings[insert_into_module_id]"?: number;"settings[insert_into_module_type]"?: string;"settings[insert_into_module_position]"?: number;"settings[move_to_assignment_group_id]"?: number;"settings[importer_skips]"?: undefined;"settings[import_blueprint_settings]"?: boolean;"date_shift_options[shift_dates]"?: boolean;"date_shift_options[old_start_date]"?: undefined;"date_shift_options[old_end_date]"?: undefined;"date_shift_options[new_start_date]"?: undefined;"date_shift_options[new_end_date]"?: undefined;"date_shift_options[day_substitutions][X]"?: number;"date_shift_options[remove_dates]"?: boolean;"selective_import"?: boolean;"select"?: undefined
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as ContentMigration

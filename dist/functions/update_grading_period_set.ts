@@ -16,15 +16,14 @@
 export const update_grading_period_set = async (token: string, baseUrl: string, params: {
   "account_id": string;"id": string;"enrollment_term_ids"?: unknown;"grading_period_set[title]": unknown;"grading_period_set[weighted]"?: unknown;"grading_period_set[display_totals_for_all_grading_periods]"?: unknown
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as void

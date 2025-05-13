@@ -16,15 +16,14 @@
 export const create_folder_courses = async (token: string, baseUrl: string, params: {
   "course_id": string;"name": string;"parent_folder_id"?: string;"parent_folder_path"?: string;"lock_at"?: undefined;"unlock_at"?: undefined;"locked"?: boolean;"hidden"?: boolean;"position"?: number
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as Folder

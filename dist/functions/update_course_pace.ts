@@ -16,15 +16,14 @@
 export const update_course_pace = async (token: string, baseUrl: string, params: {
   "id": string;"course_id": number;"course_pace_id": number;"end_date"?: undefined;"exclude_weekends"?: boolean;"selected_days_to_skip"?: string;"hard_end_dates"?: boolean;"workflow_state"?: string;"course_pace_module_item_attributes"?: unknown
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as CoursePace

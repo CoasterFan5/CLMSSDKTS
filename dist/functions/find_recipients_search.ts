@@ -16,15 +16,14 @@
 export const find_recipients_search = async (token: string, baseUrl: string, params: {
   "search"?: string;"context"?: string;"exclude"?: unknown;"type"?: string;"user_id"?: number;"from_conversation_id"?: number;"permissions"?: unknown
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as void

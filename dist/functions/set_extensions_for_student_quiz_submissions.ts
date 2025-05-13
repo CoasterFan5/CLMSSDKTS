@@ -16,15 +16,14 @@
 export const set_extensions_for_student_quiz_submissions = async (token: string, baseUrl: string, params: {
   "course_id": string;"quiz_id": string;"quiz_extensions[user_id]": unknown;"quiz_extensions[extra_attempts]"?: unknown;"quiz_extensions[extra_time]"?: unknown;"quiz_extensions[manually_unlocked]"?: unknown;"quiz_extensions[extend_from_now]"?: unknown;"quiz_extensions[extend_from_end_at]"?: unknown
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as void

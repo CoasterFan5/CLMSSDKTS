@@ -16,15 +16,14 @@
 export const list_submissions_for_multiple_assignments_sections = async (token: string, baseUrl: string, params: {
   "section_id": string;"student_ids"?: unknown;"assignment_ids"?: unknown;"grouped"?: boolean;"post_to_sis"?: boolean;"submitted_since"?: undefined;"graded_since"?: undefined;"grading_period_id"?: number;"workflow_state"?: string;"enrollment_state"?: string;"state_based_on_date"?: boolean;"order"?: string;"order_direction"?: string;"include"?: unknown
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as void

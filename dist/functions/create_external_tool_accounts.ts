@@ -16,15 +16,14 @@
 export const create_external_tool_accounts = async (token: string, baseUrl: string, params: {
   "account_id": string;"client_id": string;"name": string;"privacy_level": string;"consumer_key": string;"shared_secret": string;"description"?: string;"url"?: string;"domain"?: string;"icon_url"?: string;"text"?: string;"custom_fields[field_name]"?: string;"is_rce_favorite"?: boolean;"account_navigation[url]"?: string;"account_navigation[enabled]"?: boolean;"account_navigation[text]"?: string;"account_navigation[selection_width]"?: string;"account_navigation[selection_height]"?: string;"account_navigation[display_type]"?: string;"user_navigation[url]"?: string;"user_navigation[enabled]"?: boolean;"user_navigation[text]"?: string;"user_navigation[visibility]"?: string;"course_home_sub_navigation[url]"?: string;"course_home_sub_navigation[enabled]"?: boolean;"course_home_sub_navigation[text]"?: string;"course_home_sub_navigation[icon_url]"?: string;"course_navigation[enabled]"?: boolean;"course_navigation[text]"?: string;"course_navigation[visibility]"?: string;"course_navigation[windowTarget]"?: string;"course_navigation[default]"?: string;"course_navigation[display_type]"?: string;"editor_button[url]"?: string;"editor_button[enabled]"?: boolean;"editor_button[icon_url]"?: string;"editor_button[selection_width]"?: string;"editor_button[selection_height]"?: string;"editor_button[message_type]"?: string;"homework_submission[url]"?: string;"homework_submission[enabled]"?: boolean;"homework_submission[text]"?: string;"homework_submission[message_type]"?: string;"link_selection[url]"?: string;"link_selection[enabled]"?: boolean;"link_selection[text]"?: string;"link_selection[message_type]"?: string;"migration_selection[url]"?: string;"migration_selection[enabled]"?: boolean;"migration_selection[message_type]"?: string;"tool_configuration[url]"?: string;"tool_configuration[enabled]"?: boolean;"tool_configuration[message_type]"?: string;"tool_configuration[prefer_sis_email]"?: boolean;"resource_selection[url]"?: string;"resource_selection[enabled]"?: boolean;"resource_selection[icon_url]"?: string;"resource_selection[selection_width]"?: string;"resource_selection[selection_height]"?: string;"config_type"?: string;"config_xml"?: string;"config_url"?: string;"not_selectable"?: boolean;"oauth_compliant"?: boolean;"unified_tool_id"?: string
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as void

@@ -16,15 +16,14 @@
 export const create_single_quiz_question = async (token: string, baseUrl: string, params: {
   "course_id": string;"quiz_id": string;"question[question_name]"?: string;"question[question_text]"?: string;"question[quiz_group_id]"?: number;"question[question_type]"?: string;"question[position]"?: number;"question[points_possible]"?: number;"question[correct_comments]"?: string;"question[incorrect_comments]"?: string;"question[neutral_comments]"?: string;"question[text_after_answers]"?: string;"question[answers]"?: undefined
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as QuizQuestion

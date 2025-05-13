@@ -16,15 +16,14 @@
 export const create_question_group = async (token: string, baseUrl: string, params: {
   "course_id": string;"quiz_id": string;"quiz_groups[name]"?: unknown;"quiz_groups[pick_count]"?: unknown;"quiz_groups[question_points]"?: unknown;"quiz_groups[assessment_question_bank_id]"?: unknown
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as void

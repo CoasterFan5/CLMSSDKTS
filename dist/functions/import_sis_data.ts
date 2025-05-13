@@ -16,15 +16,14 @@
 export const import_sis_data = async (token: string, baseUrl: string, params: {
   "account_id": string;"import_type"?: string;"attachment"?: string;"extension"?: string;"batch_mode"?: boolean;"batch_mode_term_id"?: string;"multi_term_batch_mode"?: boolean;"skip_deletes"?: boolean;"override_sis_stickiness"?: boolean;"add_sis_stickiness"?: boolean;"clear_sis_stickiness"?: boolean;"update_sis_id_if_login_claimed"?: boolean;"diffing_data_set_identifier"?: string;"diffing_remaster_data_set"?: boolean;"diffing_drop_status"?: string;"diffing_user_remove_status"?: string;"batch_mode_enrollment_drop_status"?: string;"change_threshold"?: number;"diff_row_count_threshold"?: number
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as SisImport

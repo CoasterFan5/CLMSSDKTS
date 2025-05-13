@@ -16,15 +16,14 @@
 export const create_course_section = async (token: string, baseUrl: string, params: {
   "course_id": string;"course_section[name]"?: string;"course_section[sis_section_id]"?: string;"course_section[integration_id]"?: string;"course_section[start_at]"?: undefined;"course_section[end_at]"?: undefined;"course_section[restrict_enrollments_to_section_dates]"?: boolean;"enable_sis_reactivation"?: boolean
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as Section

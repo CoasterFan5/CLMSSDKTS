@@ -16,15 +16,14 @@
 export const list_active_courses_in_account = async (token: string, baseUrl: string, params: {
   "account_id": string;"with_enrollments"?: boolean;"enrollment_type"?: unknown;"published"?: boolean;"completed"?: boolean;"blueprint"?: boolean;"blueprint_associated"?: boolean;"public"?: boolean;"by_teachers"?: unknown;"by_subaccounts"?: unknown;"hide_enrollmentless_courses"?: boolean;"state"?: unknown;"enrollment_term_id"?: number;"search_term"?: string;"include"?: unknown;"sort"?: string;"order"?: string;"search_by"?: string;"starts_before"?: undefined;"ends_after"?: undefined;"homeroom"?: boolean
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as Course[]

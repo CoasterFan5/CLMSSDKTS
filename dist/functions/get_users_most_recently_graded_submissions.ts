@@ -16,15 +16,14 @@
 export const get_users_most_recently_graded_submissions = async (token: string, baseUrl: string, params: {
   "id": string;"include"?: unknown;"only_current_enrollments"?: boolean;"only_published_assignments"?: boolean
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as Submission[]

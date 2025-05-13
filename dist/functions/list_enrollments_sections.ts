@@ -16,15 +16,14 @@
 export const list_enrollments_sections = async (token: string, baseUrl: string, params: {
   "section_id": string;"type"?: unknown;"role"?: unknown;"state"?: unknown;"include"?: unknown;"user_id"?: string;"grading_period_id"?: number;"enrollment_term_id"?: number;"sis_account_id"?: unknown;"sis_course_id"?: unknown;"sis_section_id"?: unknown;"sis_user_id"?: unknown;"created_for_sis_id"?: unknown
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as Enrollment[]

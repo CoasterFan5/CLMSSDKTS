@@ -16,15 +16,14 @@
 export const list_assignment_groups = async (token: string, baseUrl: string, params: {
   "course_id": string;"include"?: unknown;"assignment_ids"?: unknown;"exclude_assignment_submission_types"?: unknown;"override_assignment_dates"?: boolean;"grading_period_id"?: number;"scope_assignments_to_student"?: boolean
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as AssignmentGroup[]

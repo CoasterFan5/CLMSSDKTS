@@ -16,15 +16,14 @@
 export const submit_assignment_sections = async (token: string, baseUrl: string, params: {
   "section_id": string;"assignment_id": string;"comment[text_comment]"?: string;"submission[group_comment]"?: boolean;"submission[submission_type]": string;"submission[body]"?: string;"submission[url]"?: string;"submission[file_ids]"?: unknown;"submission[media_comment_id]"?: string;"submission[media_comment_type]"?: string;"submission[user_id]"?: number;"submission[annotatable_attachment_id]"?: number;"submission[submitted_at]"?: undefined
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as void

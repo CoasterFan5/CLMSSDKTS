@@ -16,15 +16,14 @@
 export const get_formatted_student_numerical_answer = async (token: string, baseUrl: string, params: {
   "quiz_submission_id": string;"id": string;"answer": undefined
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as void

@@ -16,15 +16,14 @@
 export const get_outcome_result_rollups = async (token: string, baseUrl: string, params: {
   "course_id": string;"aggregate"?: string;"aggregate_stat"?: string;"user_ids"?: unknown;"outcome_ids"?: unknown;"include"?: unknown;"exclude"?: unknown;"sort_by"?: string;"sort_outcome_id"?: number;"sort_order"?: string;"add_defaults"?: boolean;"contributing_scores"?: boolean
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as void

@@ -16,15 +16,14 @@
 export const create_assignment_override = async (token: string, baseUrl: string, params: {
   "course_id": string;"assignment_id": string;"assignment_override[student_ids]"?: unknown;"assignment_override[title]"?: string;"assignment_override[group_id]"?: number;"assignment_override[course_section_id]"?: number;"assignment_override[due_at]"?: undefined;"assignment_override[unlock_at]"?: undefined;"assignment_override[lock_at]"?: undefined
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as AssignmentOverride

@@ -16,15 +16,14 @@
 export const create_single_poll_session = async (token: string, baseUrl: string, params: {
   "poll_id": string;"poll_sessions[course_id]": unknown;"poll_sessions[course_section_id]"?: unknown;"poll_sessions[has_public_results]"?: unknown
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as void

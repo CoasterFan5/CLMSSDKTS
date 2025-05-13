@@ -16,15 +16,14 @@
 export const create_communication_channel = async (token: string, baseUrl: string, params: {
   "user_id": string;"communication_channel[address]": string;"communication_channel[type]": string;"communication_channel[token]"?: string;"skip_confirmation"?: boolean
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as CommunicationChannel

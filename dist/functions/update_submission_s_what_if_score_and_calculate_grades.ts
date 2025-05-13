@@ -16,15 +16,14 @@
 export const update_submission_s_what_if_score_and_calculate_grades = async (token: string, baseUrl: string, params: {
   "id": string;"student_entered_score"?: number
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as gradesGradessubmissionSubmission[]

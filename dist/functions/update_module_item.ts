@@ -16,15 +16,14 @@
 export const update_module_item = async (token: string, baseUrl: string, params: {
   "course_id": string;"module_id": string;"id": string;"module_item[title]"?: string;"module_item[position]"?: number;"module_item[indent]"?: number;"module_item[external_url]"?: string;"module_item[new_tab]"?: boolean;"module_item[completion_requirement][type]"?: string;"module_item[completion_requirement][min_score]"?: number;"module_item[published]"?: boolean;"module_item[module_id]"?: string
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as ModuleItem

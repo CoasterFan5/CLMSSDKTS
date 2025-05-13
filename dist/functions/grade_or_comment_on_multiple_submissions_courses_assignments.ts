@@ -16,15 +16,14 @@
 export const grade_or_comment_on_multiple_submissions_courses_assignments = async (token: string, baseUrl: string, params: {
   "course_id": string;"assignment_id": string;"grade_data[<student_id>][posted_grade]"?: string;"grade_data[<student_id>][excuse]"?: boolean;"grade_data[<student_id>][rubric_assessment]"?: undefined;"grade_data[<student_id>][text_comment]"?: string;"grade_data[<student_id>][group_comment]"?: boolean;"grade_data[<student_id>][media_comment_id]"?: string;"grade_data[<student_id>][media_comment_type]"?: string;"grade_data[<student_id>][file_ids]"?: unknown;"grade_data[<assignment_id>][<student_id>]"?: number
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as Progress

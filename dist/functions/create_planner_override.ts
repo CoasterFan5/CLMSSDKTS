@@ -16,15 +16,14 @@
 export const create_planner_override = async (token: string, baseUrl: string, params: {
   "plannable_type": string;"plannable_id": number;"marked_complete"?: boolean;"dismissed"?: boolean
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as PlannerOverride

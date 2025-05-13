@@ -16,15 +16,14 @@
 export const deprecated_self_register_user = async (token: string, baseUrl: string, params: {
   "account_id": string;"user[name]": string;"user[short_name]"?: string;"user[sortable_name]"?: string;"user[time_zone]"?: string;"user[locale]"?: string;"user[terms_of_use]": boolean;"pseudonym[unique_id]": string;"communication_channel[type]"?: string;"communication_channel[address]"?: string
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as User

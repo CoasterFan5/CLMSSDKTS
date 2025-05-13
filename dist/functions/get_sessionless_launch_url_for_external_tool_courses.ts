@@ -16,15 +16,14 @@
 export const get_sessionless_launch_url_for_external_tool_courses = async (token: string, baseUrl: string, params: {
   "course_id": string;"id"?: string;"url"?: string;"assignment_id"?: string;"module_item_id"?: string;"launch_type"?: string;"resource_link_lookup_uuid"?: string
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as void

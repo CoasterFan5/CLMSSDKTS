@@ -16,15 +16,14 @@
 export const list_calendar_events = async (token: string, baseUrl: string, params: {
   "type"?: string;"start_date"?: undefined;"end_date"?: undefined;"undated"?: boolean;"all_events"?: boolean;"context_codes"?: unknown;"excludes"?: unknown;"includes"?: unknown;"important_dates"?: boolean;"blackout_date"?: boolean
 }) => {
-  console.log(token)
-  const r = await fetch(urlBuilder(baseUrl, params), {
+  const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
     headers: {
       "Authorization": "Bearer " + token
     }
   })
   if(r.status != 200) {
-    console.error(r)
+    throw r
     return undefined
   }
   return (await r.json()) as CalendarEvent[]
