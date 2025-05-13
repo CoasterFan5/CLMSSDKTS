@@ -5,8 +5,4 @@ const canvas = new CanvasLMS({
   accessToken: process.env.CANVAS_TOKEN!,
 });
 
-console.log(
-  await canvas.removeCourseFromFavorites({
-    id: "2036065",
-  }),
-);
+console.log(await canvas.listYourCourses({}));

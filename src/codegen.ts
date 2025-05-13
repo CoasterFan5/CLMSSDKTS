@@ -79,7 +79,7 @@ export const codeGen = async () => {
       for (const apiOperation of apiRoute.operations) {
         routesArrays[apiOperation.method].push(apiRoute.path);
         const newName = apiOperation.nickname;
-        fs.writeFile(
+        await fs.writeFile(
           `./dist/functions/${newName}.ts`,
           buildFunction({
             name: newName,
