@@ -1,6 +1,5 @@
 index.ts
 functions/*.ts
-methods/*.ts
 models/*.ts
 
 !routeTyper.ts
