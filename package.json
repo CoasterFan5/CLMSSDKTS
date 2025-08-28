@@ -8,13 +8,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "convert": "api-spec-converter --from=swagger_1 --to=swagger_2 ./swagger > swagger-2.0-spec.json",
-    "generate": "tsx ./src/index.ts",
+    "generate": "dotenvx run -- tsx ./src/index.ts",
     "dev": "pnpm run generate && dotenvx run -- tsx ./examples/index.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@dotenvx/dotenvx": "^1.49.0",
     "@types/node": "^22.15.17",
     "api-spec-converter": "^2.12.0",
     "swagger-converter": "^2.1.0",
