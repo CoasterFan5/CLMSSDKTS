@@ -8,6 +8,8 @@ const courses = await canvas.listYourCourses({});
 
 if (courses) {
   for (const c of courses) {
+    console.log(c.id);
+
     canvas
       .listAssignmentsAssignments({
         course_id: c.id.toString(),
@@ -18,6 +20,9 @@ if (courses) {
             console.log(`${c.name} - ${a.name}`);
           }
         }
+      })
+      .catch((e) => {
+        console.error(e);
       });
   }
 }

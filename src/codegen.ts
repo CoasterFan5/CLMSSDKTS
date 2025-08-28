@@ -92,6 +92,7 @@ export const codeGen = async () => {
               : "",
           }),
         );
+        console.info(`created ${apiOperation.nickname}`);
       }
     }
   }

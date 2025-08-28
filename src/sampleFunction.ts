@@ -1,9 +1,18 @@
+//startstrip
+type __PARAMS_LIST_STRING__ = {};
+type __TYPE_DETAILS_NAME__ = "";
+const __TYPE_DETAILS_IMPORT__ = "";
+//endstrip
 
+/*
+This code is generated
+Report issues: https://github.com/CoasterFan5/CLMSSDKTS
 
-//IMPORTS
-import type {File} from "../models/File";
-const baseUrl = "/v1/users/{user_id}/files";
-const method = "GET";
+*/
+
+__TYPE_DETAILS_IMPORT__;
+const baseUrl = "__URL__";
+const method = "__METHOD__";
 
 const urlBuilder = (base: string, items: Record<string, string>) => {
   let newUrl = baseUrl;
@@ -14,10 +23,10 @@ const urlBuilder = (base: string, items: Record<string, string>) => {
   return base + newUrl;
 };
 
-export const list_files_users = async (
+export const __NAME__ = async (
   token: string,
   baseUrl: string,
-  params: {"user_id": string;"content_types"?: unknown;"exclude_content_types"?: unknown;"search_term"?: string;"include"?: unknown;"only"?: unknown;"sort"?: string;"order"?: string},
+  params: __PARAMS_LIST_STRING__,
 ) => {
   const r = await fetch(urlBuilder(baseUrl, params) + "?per_page=100", {
     method: method,
@@ -28,5 +37,5 @@ export const list_files_users = async (
   if (r.status != 200) {
     throw r;
   }
-  return (await r.json()) as File[];
+  return (await r.json()) as __TYPE_DETAILS_NAME__;
 };

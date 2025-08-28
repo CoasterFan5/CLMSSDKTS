@@ -6,7 +6,6 @@ const builtImports: string[] = [];
 const nameList: string[] = [];
 
 export const addMethod = (name: string) => {
-  console.log(`adding`);
   if (nameList.includes(name)) {
     return;
   }
