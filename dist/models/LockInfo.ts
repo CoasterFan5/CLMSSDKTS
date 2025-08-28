@@ -1,1 +1,0 @@
-export type LockInfo = {asset_string: string,unlock_at?: string,lock_at?: string,context_module?: string,manually_locked: boolean}

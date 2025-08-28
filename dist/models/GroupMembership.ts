@@ -1,1 +1,0 @@
-export type GroupMembership = {id: number,group_id: number,user_id: number,workflow_state: string,moderator: boolean,just_created?: boolean,sis_import_id: number}

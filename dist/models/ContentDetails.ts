@@ -1,1 +1,0 @@
-export type ContentDetails = {points_possible: number,due_at: string,unlock_at: string,lock_at: string,locked_for_user: boolean,lock_explanation: string}

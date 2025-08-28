@@ -1,1 +1,0 @@
-export type PlannerNote = {id: number,title: string,description: string,user_id: number,workflow_state: string,course_id: number,todo_date: string,linked_object_type: string,linked_object_id: number,linked_object_html_url: string,linked_object_url: string}

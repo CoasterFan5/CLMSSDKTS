@@ -1,1 +1,0 @@
-export type CommMessage = {id: number,created_at: string,sent_at: string,workflow_state: string,from: string,from_name: string,to: string,reply_to: string,subject: string,body: string,html_body: string}

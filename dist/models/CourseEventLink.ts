@@ -1,1 +1,0 @@
-export type CourseEventLink = {course: number,user: number,page_view: string,copied_from: number,copied_to: number,sis_batch: number}

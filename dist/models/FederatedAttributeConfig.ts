@@ -1,1 +1,0 @@
-export type FederatedAttributeConfig = {attribute: string,provisioning_only: boolean,autoconfirm: boolean}

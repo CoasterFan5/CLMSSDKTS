@@ -1,1 +1,0 @@
-export type SubmissionComment = {id: number,author_id: number,author_name: string,author: string,comment: string,created_at: string,edited_at: string}

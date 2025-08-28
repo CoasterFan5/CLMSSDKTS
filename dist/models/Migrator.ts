@@ -1,1 +1,0 @@
-export type Migrator = {type: string,requires_file_upload: boolean,name: string,required_settings: unknown}

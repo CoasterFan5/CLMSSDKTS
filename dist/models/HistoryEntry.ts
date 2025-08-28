@@ -1,1 +1,0 @@
-export type HistoryEntry = {asset_code: string,asset_name: string,asset_icon: string,asset_readable_category: string,context_type: string,context_id: number,context_name: string,visited_url: string,visited_at: string,interaction_seconds: number}

@@ -1,1 +1,0 @@
-export type CourseNickname = {course_id: number,name: string,nickname: string}

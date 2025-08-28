@@ -1,1 +1,0 @@
-export type AccommodationResponse = {message: string,successful: unknown,failed: unknown}

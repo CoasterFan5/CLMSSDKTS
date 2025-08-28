@@ -1,1 +1,0 @@
-export type ProficiencyRating = {description: string,points: number,mastery: boolean,color: string}

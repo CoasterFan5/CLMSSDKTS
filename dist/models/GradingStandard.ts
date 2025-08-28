@@ -1,1 +1,0 @@
-export type GradingStandard = {title: string,id: number,context_type: string,context_id: number,points_based: boolean,scaling_factor: number,grading_scheme: unknown}

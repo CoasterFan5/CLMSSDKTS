@@ -1,1 +1,0 @@
-export type RubricAssessment = {id: number,rubric_id: number,rubric_association_id: number,score: number,artifact_type: string,artifact_id: number,artifact_attempt: number,assessment_type: string,assessor_id: number,data?: unknown,comments?: unknown}

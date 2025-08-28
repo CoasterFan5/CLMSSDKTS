@@ -1,1 +1,0 @@
-export type OriginalityReport = {id: number,file_id: number,originality_score: number,originality_report_file_id: number,originality_report_url: string,error_report: string,submission_time: string,root_account_id: number}

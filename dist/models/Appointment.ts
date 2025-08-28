@@ -1,1 +1,0 @@
-export type Appointment = {id: number,start_at: string,end_at: string}

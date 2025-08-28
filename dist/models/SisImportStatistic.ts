@@ -1,1 +1,0 @@
-export type SisImportStatistic = {created: number,concluded: number,deactivated: number,restored: number,deleted: number}

@@ -1,1 +1,0 @@
-export type SisImportCounts = {accounts: number,terms: number,abstract_courses: number,courses: number,sections: number,xlists: number,users: number,enrollments: number,groups: number,group_memberships: number,grade_publishing_results: number,batch_courses_deleted: number,batch_sections_deleted: number,batch_enrollments_deleted: number,error_count: number,warning_count: number}

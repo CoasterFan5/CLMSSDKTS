@@ -1,1 +1,0 @@
-export type Tab = {html_url: string,id: string,label: string,type: string,hidden: boolean,visibility: string,position: number}

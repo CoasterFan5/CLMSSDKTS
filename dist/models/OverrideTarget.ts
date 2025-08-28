@@ -1,1 +1,0 @@
-export type OverrideTarget = {id: number,name: string}

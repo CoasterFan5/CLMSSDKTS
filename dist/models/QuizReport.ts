@@ -1,1 +1,0 @@
-export type QuizReport = {id: number,quiz_id: number,report_type: string,readable_type: string,includes_all_versions: boolean,anonymous: boolean,generatable: boolean,created_at: string,updated_at: string,url: string,progress_url: string}

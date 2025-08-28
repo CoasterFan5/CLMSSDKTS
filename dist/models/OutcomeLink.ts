@@ -1,1 +1,0 @@
-export type OutcomeLink = {url: string,context_id: number,context_type: string,assessed: boolean,can_unlink: boolean}

@@ -1,1 +1,0 @@
-export type SisImportData = {import_type: string,supplied_batches: unknown}

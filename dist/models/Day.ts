@@ -1,1 +1,0 @@
-export type Day = {date: string,graders: number}

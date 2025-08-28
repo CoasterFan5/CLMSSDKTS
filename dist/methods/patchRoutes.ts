@@ -1,1 +1,0 @@
-export const patchRoutes = ["/v1/accounts/{account_id}/grading_period_sets/{id}","/v1/courses/{course_id}/grading_periods/batch_update","/v1/grading_period_sets/{set_id}/grading_periods/batch_update","/v1/courses/{id}/late_policy","/quiz/v1/courses/{course_id}/quizzes/{assignment_id}/items/{item_id}","/quiz/v1/courses/{course_id}/quizzes/{assignment_id}"] as const;

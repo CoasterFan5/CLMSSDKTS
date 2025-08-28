@@ -1,1 +1,0 @@
-export type QuizStatisticsAnswerStatistics = {id: number,text: string,weight: number,responses: number}

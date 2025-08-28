@@ -1,1 +1,0 @@
-export type NeedsGradingCount = {section_id: string,needs_grading_count: number}

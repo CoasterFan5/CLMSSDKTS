@@ -1,1 +1,0 @@
-export type Conversation = {id: number,subject: string,workflow_state: string,last_message: string,start_at: string,message_count: number,subscribed: boolean,private: boolean,starred: boolean,properties: unknown,audience: unknown,audience_contexts: unknown,avatar_url: string,participants: unknown,visible: boolean,context_name: string}

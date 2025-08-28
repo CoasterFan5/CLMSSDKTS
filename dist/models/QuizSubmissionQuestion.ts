@@ -1,1 +1,0 @@
-export type QuizSubmissionQuestion = {id: number,flagged: boolean,answer: string,answers: unknown}

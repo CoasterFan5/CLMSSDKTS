@@ -1,1 +1,0 @@
-export type CommunicationChannel = {id: number,address: string,type: string,position: number,user_id: number,bounce_count: number,last_bounce_at: string,workflow_state: string}

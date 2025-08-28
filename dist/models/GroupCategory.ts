@@ -1,1 +1,0 @@
-export type GroupCategory = {id: number,name: string,role: string,self_signup: string,auto_leader: string,context_type: string,account_id: number,group_limit: number,sis_group_category_id: string,sis_import_id: number,non_collaborative: boolean}

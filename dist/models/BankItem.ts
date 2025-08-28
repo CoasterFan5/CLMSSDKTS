@@ -1,1 +1,0 @@
-export type BankItem = {title: string,archived: boolean,entry_count: number,item_entry_count: number}

@@ -1,1 +1,0 @@
-export type ColumnDatum = {content: string,user_id: number}

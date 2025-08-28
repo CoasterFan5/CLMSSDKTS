@@ -1,1 +1,0 @@
-export type UpdatedEventData = {name: unknown,start_at: unknown,conclude_at: unknown,is_public: unknown}

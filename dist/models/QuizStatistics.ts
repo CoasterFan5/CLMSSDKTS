@@ -1,1 +1,0 @@
-export type QuizStatistics = {id: number,quiz_id: number,multiple_attempts_exist: boolean,includes_all_versions: boolean,generated_at: string,url: string,html_url: string}

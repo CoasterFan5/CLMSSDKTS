@@ -1,1 +1,0 @@
-export type UserDisplay = {id: number,short_name: string,avatar_image_url: string,html_url: string}

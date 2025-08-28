@@ -1,1 +1,0 @@
-export type ContentMigration = {id: number,migration_type: string,migration_type_title: string,migration_issues_url: string,attachment: string,progress_url: string,user_id: number,workflow_state: string,started_at: string,finished_at: string,pre_attachment: string}

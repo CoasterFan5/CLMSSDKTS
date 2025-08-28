@@ -1,1 +1,0 @@
-export type SearchResult = {content_id: number,content_type: string,title: string,body: string,html_url: string,distance: number}

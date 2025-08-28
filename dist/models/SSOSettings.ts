@@ -1,1 +1,0 @@
-export type SSOSettings = {login_handle_name: string,change_password_url: string,auth_discovery_url: string,unknown_user_url: string}

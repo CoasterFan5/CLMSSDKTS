@@ -1,1 +1,0 @@
-export type PlannerOverride = {id: number,plannable_type: string,plannable_id: number,user_id: number,assignment_id: number,workflow_state: string,marked_complete: boolean,dismissed: boolean,created_at: string,updated_at: string,deleted_at: string}

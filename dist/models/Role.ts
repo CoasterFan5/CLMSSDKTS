@@ -1,1 +1,0 @@
-export type Role = {id: number,label: string,role: string,base_role_type: string,is_account_role: boolean,account: object,workflow_state: string,created_at: string,last_updated_at: string,permissions: object}

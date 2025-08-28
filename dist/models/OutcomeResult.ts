@@ -1,1 +1,0 @@
-export type OutcomeResult = {id: number,score: number,submitted_or_assessed_at: string,links: object,percent: number}

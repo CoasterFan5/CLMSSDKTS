@@ -1,1 +1,0 @@
-export type AssignmentOverride = {id: number,assignment_id: number,quiz_id: number,context_module_id: number,discussion_topic_id: number,wiki_page_id: number,attachment_id: number,student_ids: unknown,group_id: number,course_section_id: number,title: string,due_at: string,all_day: boolean,all_day_date: string,unlock_at: string,lock_at: string}

@@ -1,1 +1,0 @@
-export type PeerReview = {assessor_id: number,asset_id: number,asset_type: string,id: number,user_id: number,workflow_state: string,user?: string,assessor?: string,submission_comments?: string}

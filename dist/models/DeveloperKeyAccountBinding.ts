@@ -1,1 +1,0 @@
-export type DeveloperKeyAccountBinding = {id: number,account_id: number,developer_key_id: number,workflow_state: number,account_owns_binding: boolean}

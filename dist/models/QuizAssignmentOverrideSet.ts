@@ -1,1 +1,0 @@
-export type QuizAssignmentOverrideSet = {quiz_id: string}

@@ -1,1 +1,0 @@
-export type QuizItem = {id: string,position: number,points_possible: number,entry_type: string,entry_editable: boolean,stimulus_quiz_entry_id: string,status: string}

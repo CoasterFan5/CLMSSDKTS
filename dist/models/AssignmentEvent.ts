@@ -1,1 +1,0 @@
-export type AssignmentEvent = {id: string,title: string,start_at: string,end_at: string,description: string,context_code: string,workflow_state: string,url: string,html_url: string,all_day_date: string,all_day: boolean,created_at: string,updated_at: string,important_dates: boolean,rrule: string,series_head: boolean,series_natural_language: string}

@@ -1,1 +1,0 @@
-export type UsageRights = {legal_copyright: string,use_justification: string,license: string,license_name: string,message: string,file_ids: unknown}

@@ -1,1 +1,0 @@
-export type EpubExport = {id: number,created_at: string,progress_url: string,user_id: number,workflow_state: string}

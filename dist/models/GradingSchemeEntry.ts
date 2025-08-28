@@ -1,1 +1,0 @@
-export type GradingSchemeEntry = {name: string,value: number,calculated_value: number}

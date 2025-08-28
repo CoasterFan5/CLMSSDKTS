@@ -1,1 +1,0 @@
-export type BasicUser = {id: string,name: string}

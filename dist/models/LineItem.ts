@@ -1,1 +1,0 @@
-export type LineItem = {id: string,scoreMaximum: number,label: string,tag: string,resourceId: string,resourceLinkId: string,https://canvas.instructure.com/lti/submission_type: string,https://canvas.instructure.com/lti/launch_url: string}

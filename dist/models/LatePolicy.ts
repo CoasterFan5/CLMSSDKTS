@@ -1,1 +1,0 @@
-export type LatePolicy = {id: number,course_id: number,missing_submission_deduction_enabled: boolean,missing_submission_deduction: number,late_submission_deduction_enabled: boolean,late_submission_deduction: number,late_submission_interval: string,late_submission_minimum_percent_enabled: boolean,late_submission_minimum_percent: number,created_at: string,updated_at: string}

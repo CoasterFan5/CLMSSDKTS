@@ -1,1 +1,0 @@
-export type Avatar = {type: string,url: string,token: string,display_name: string,id: number,content-type: string,filename: string,size: number}

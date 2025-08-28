@@ -1,1 +1,0 @@
-export type EnrollmentTermsList = {enrollment_terms: unknown}

@@ -1,1 +1,0 @@
-export type RubricCriteria = {points: number,id: string,learning_outcome_id?: string,vendor_guid?: string,description: string,long_description: string,criterion_use_range: boolean,ratings: unknown,ignore_for_scoring: boolean}

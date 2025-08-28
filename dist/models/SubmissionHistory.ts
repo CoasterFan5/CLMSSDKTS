@@ -1,1 +1,0 @@
-export type SubmissionHistory = {submission_id: number,versions: unknown}

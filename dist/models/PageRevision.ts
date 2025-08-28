@@ -1,1 +1,0 @@
-export type PageRevision = {revision_id: number,updated_at: string,latest: boolean,url: string,title: string,body: string}

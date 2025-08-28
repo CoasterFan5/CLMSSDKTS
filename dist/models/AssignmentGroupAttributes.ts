@@ -1,1 +1,0 @@
-export type AssignmentGroupAttributes = {id: number,name: string,group_weight: number,sis_source_id: string,integration_data: object}

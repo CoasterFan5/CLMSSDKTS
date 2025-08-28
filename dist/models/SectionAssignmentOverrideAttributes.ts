@@ -1,1 +1,0 @@
-export type SectionAssignmentOverrideAttributes = {override_title: string,due_at: string,unlock_at?: string,lock_at?: string}

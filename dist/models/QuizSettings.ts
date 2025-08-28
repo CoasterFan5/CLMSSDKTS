@@ -1,1 +1,0 @@
-export type QuizSettings = {calculator_type: string,filter_ip_address: boolean,filters: object,one_at_a_time_type: string,allow_backtracking: boolean,shuffle_answers: boolean,shuffle_questions: boolean,require_student_access_code: boolean,student_access_code: string,has_time_limit: boolean,session_time_limit_in_seconds: number}

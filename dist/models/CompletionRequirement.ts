@@ -1,1 +1,0 @@
-export type CompletionRequirement = {type: string,min_score: number,min_percentage: number,completed?: boolean}

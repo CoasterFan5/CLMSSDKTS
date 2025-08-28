@@ -1,1 +1,0 @@
-export type ExternalToolTagAttributes = {url: string,new_tab: boolean,resource_link_id: string}

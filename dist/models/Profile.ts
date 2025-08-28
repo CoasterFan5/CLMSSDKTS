@@ -1,1 +1,0 @@
-export type Profile = {id: number,name: string,short_name: string,sortable_name: string,title: string,bio: string,pronunciation: string,primary_email: string,login_id: string,sis_user_id: string,lti_user_id: string,avatar_url: string,time_zone?: string,locale: string,k5_user?: boolean,use_classic_font_in_k5?: boolean}

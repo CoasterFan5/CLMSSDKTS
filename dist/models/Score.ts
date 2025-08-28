@@ -1,1 +1,0 @@
-export type Score = {userId: string,scoreGiven: number,scoreMaximum: number,comment: string,timestamp: string,activityProgress: string,gradingProgress: string,submission: object}

@@ -1,1 +1,0 @@
-export type Feature = {feature: string,display_name: string,applies_to: string,root_opt_in: boolean,beta: boolean,autoexpand: boolean,release_notes_url: string}

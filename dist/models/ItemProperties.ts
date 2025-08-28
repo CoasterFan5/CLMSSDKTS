@@ -1,1 +1,0 @@
-export type ItemProperties = {sample_num: number}

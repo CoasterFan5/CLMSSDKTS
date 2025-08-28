@@ -1,1 +1,0 @@
-export type TemporaryEnrollmentPairing = {id: number,workflow_state: string}

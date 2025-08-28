@@ -1,1 +1,0 @@
-export type BlueprintSubscription = {id: number,template_id: number,blueprint_course: object}

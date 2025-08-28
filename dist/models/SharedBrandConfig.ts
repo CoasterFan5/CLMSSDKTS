@@ -1,1 +1,0 @@
-export type SharedBrandConfig = {id: number,account_id: string,brand_config_md5: string,name: string,created_at: string,updated_at: string}

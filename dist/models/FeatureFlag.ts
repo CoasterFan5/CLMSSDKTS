@@ -1,1 +1,0 @@
-export type FeatureFlag = {context_type: string,context_id: number,feature: string,state: string,locked: boolean}

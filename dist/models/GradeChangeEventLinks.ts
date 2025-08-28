@@ -1,1 +1,0 @@
-export type GradeChangeEventLinks = {assignment: number,course: number,student: number,grader: number,page_view: string}

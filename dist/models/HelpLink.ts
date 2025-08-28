@@ -1,1 +1,0 @@
-export type HelpLink = {id: string,text: string,subtext: string,url: string,type: string,available_to: unknown}

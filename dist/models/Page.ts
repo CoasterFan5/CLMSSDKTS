@@ -1,1 +1,0 @@
-export type Page = {page_id: number,url: string,title: string,created_at: string,updated_at: string,hide_from_students: boolean,editing_roles: string,body?: string,published: boolean,publish_at: string,front_page: boolean,locked_for_user: boolean,lock_explanation?: string,editor: string,block_editor_attributes?: object}

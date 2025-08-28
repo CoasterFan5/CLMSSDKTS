@@ -1,1 +1,0 @@
-export type AuthenticationEvent = {created_at: string,event_type: string,pseudonym_id: number,account_id: number,user_id: number}

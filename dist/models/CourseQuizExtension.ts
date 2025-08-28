@@ -1,1 +1,0 @@
-export type CourseQuizExtension = {user_id: number,extra_attempts: number,extra_time: number,manually_unlocked: boolean,end_at: string}

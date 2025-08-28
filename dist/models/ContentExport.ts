@@ -1,1 +1,0 @@
-export type ContentExport = {id: number,created_at: string,export_type: string,progress_url: string,user_id: number,workflow_state: string}

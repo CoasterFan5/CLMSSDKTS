@@ -1,1 +1,0 @@
-export type OutcomeRollupLinks = {course?: number,user?: number,section?: number}

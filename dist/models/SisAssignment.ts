@@ -1,1 +1,0 @@
-export type SisAssignment = {id: number,course_id: number,name: string,created_at: string,due_at: string,unlock_at?: string,lock_at?: string,points_possible: number,submission_types: unknown,integration_id: string,integration_data?: string,include_in_final_grade: boolean,assignment_group: unknown,sections: unknown,user_overrides: unknown}

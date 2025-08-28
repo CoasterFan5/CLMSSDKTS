@@ -1,1 +1,0 @@
-export type SisImportStatistics = {total_state_changes: number}

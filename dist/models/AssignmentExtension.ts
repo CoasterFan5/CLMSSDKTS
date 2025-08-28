@@ -1,1 +1,0 @@
-export type AssignmentExtension = {assignment_id: number,user_id: number,extra_attempts: number}

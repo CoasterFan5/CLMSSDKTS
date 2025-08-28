@@ -1,1 +1,0 @@
-export type ScoreStatistic = {min: number,max: number,mean: number,upper_q: number,median: number,lower_q: number}

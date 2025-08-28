@@ -1,1 +1,0 @@
-export type LtiPlacementLaunchDefinition = {message_type: string,url: string,title: string}

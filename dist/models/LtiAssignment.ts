@@ -1,1 +1,0 @@
-export type LtiAssignment = {id: number,name: string,description: string,points_possible: number,due_at: string,lti_id: string,course_id: number,lti_course_id: string}

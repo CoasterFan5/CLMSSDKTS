@@ -9,7 +9,6 @@ This code is generated
 Report issues: https://github.com/CoasterFan5/CLMSSDKTS
 
 */
-
 __TYPE_DETAILS_IMPORT__;
 const baseUrl = "__URL__";
 const method = "__METHOD__";

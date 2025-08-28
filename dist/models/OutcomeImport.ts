@@ -1,1 +1,0 @@
-export type OutcomeImport = {id: number,learning_outcome_group_id: number,created_at: string,ended_at: string,updated_at: string,workflow_state: string,progress: string,processing_errors: unknown}

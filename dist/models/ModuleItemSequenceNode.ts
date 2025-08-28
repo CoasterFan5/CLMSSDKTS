@@ -1,1 +1,0 @@
-export type ModuleItemSequenceNode = {mastery_path: object}

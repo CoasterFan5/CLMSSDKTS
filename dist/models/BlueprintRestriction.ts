@@ -1,1 +1,0 @@
-export type BlueprintRestriction = {content: boolean,points: boolean,due_dates: boolean,availability_dates: boolean}

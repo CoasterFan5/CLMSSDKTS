@@ -1,1 +1,0 @@
-export type Assessment = {id: string,key: string,title: string}

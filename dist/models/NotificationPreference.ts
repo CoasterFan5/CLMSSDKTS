@@ -1,1 +1,0 @@
-export type NotificationPreference = {href: string,notification: string,category: string,frequency: string}

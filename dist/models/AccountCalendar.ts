@@ -1,1 +1,0 @@
-export type AccountCalendar = {id: number,name: string,parent_account_id: number,root_account_id: number,visible: boolean,auto_subscribe: boolean,sub_account_count: number,asset_string: string,type: string,calendar_event_url: string,can_create_calendar_events: boolean,create_calendar_event_url: string,new_calendar_event_url: string}

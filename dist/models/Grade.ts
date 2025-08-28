@@ -1,1 +1,0 @@
-export type Grade = {grade: number,total: number,possible: number,dropped: unknown}
