@@ -1,6 +1,6 @@
 {
   "name": "clmssdkts",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "Unofficial canvas sdk with types",
   "type": "module",
   "module": "es2020",
