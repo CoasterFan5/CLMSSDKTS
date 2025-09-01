@@ -31,6 +31,7 @@ const typeBuilder = (typeName: string, ref: string | undefined) => {
 export const buildFunction = (args: {
   name: string;
   url: string;
+  description: string;
   params: typeof operationParams._type;
   method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
   returnType: string;
@@ -41,7 +42,7 @@ export const buildFunction = (args: {
   });
   const paramListString = `{${paramList.join(";")}}`;
   const typeDetails = typeBuilder(args.returnType, args.ref);
-  addMethod(args.name);
+  addMethod(args.name, args.description);
 
   let fnText = fs.readFileSync("./src/sampleFunction.ts").toString();
 
@@ -52,6 +53,7 @@ export const buildFunction = (args: {
   fnText = fnText.replace("__NAME__", args.name);
   fnText = fnText.replace("__PARAMS_LIST_STRING__", paramListString);
   fnText = fnText.replace("__TYPE_DETAILS_NAME__", typeDetails.typeName);
+  fnText = fnText.replace("__DESCRIPTION__", args.description);
 
   return fnText;
 };

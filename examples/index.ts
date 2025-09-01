@@ -24,5 +24,21 @@ if (courses) {
       .catch((e) => {
         console.error(e);
       });
+
+    canvas
+      .listAssignmentsAssignments({
+        course_id: c.id.toString(),
+        include: ["submission"],
+      })
+      .then((assignments) => {
+        if (assignments) {
+          for (const a of assignments) {
+            console.log(a);
+          }
+        }
+      })
+      .catch((e) => {
+        console.error(e);
+      });
   }
 }

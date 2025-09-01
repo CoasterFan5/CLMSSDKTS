@@ -6,7 +6,7 @@ export const typesMap: Record<string, string> = {
   string: "string",
   boolean: "boolean",
   object: "object",
-  array: "unknown",
+  array: "[unknown]",
   date: "Date",
   void: "void",
 };

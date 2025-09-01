@@ -84,6 +84,7 @@ export const codeGen = async () => {
           buildFunction({
             name: newName,
             url: apiRoute.path,
+            description: apiRoute.description,
             params: apiOperation.parameters,
             returnType: getValidReturnType(apiOperation.type),
             method: apiOperation.method,

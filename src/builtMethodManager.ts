@@ -5,7 +5,7 @@ const builtImports: string[] = [];
 
 const nameList: string[] = [];
 
-export const addMethod = (name: string) => {
+export const addMethod = (name: string, description: string) => {
   if (nameList.includes(name)) {
     return;
   }
@@ -13,6 +13,9 @@ export const addMethod = (name: string) => {
   builtImports.push(`import {${name}} from "./functions/${name}"`);
   builtMethods.push(
     `
+    /**
+    ${description}
+    */
   ${snakeToCamelCase(name)}(args: Parameters<typeof ${name}>[2]) {
   return ${name}(this.token, this.domain, args);
 }`,

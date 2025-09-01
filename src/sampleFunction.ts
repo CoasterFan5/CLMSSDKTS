@@ -22,6 +22,9 @@ const urlBuilder = (base: string, items: Record<string, string>) => {
   return base + newUrl;
 };
 
+/**
+ * __DESCRIPTION__
+ */
 export const __NAME__ = async (
   token: string,
   baseUrl: string,
