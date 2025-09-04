@@ -26,6 +26,7 @@ const modelsZod = z.object({
             "void",
           ])
           .optional(),
+        $ref: z.string().optional(),
       }),
     )
     .nullable(),
@@ -39,6 +40,7 @@ export const operationParams = z.array(
     type: z.string(),
     required: z.boolean(),
     deprecated: z.boolean(),
+    enum: z.array(z.string()).optional(),
   }),
 );
 

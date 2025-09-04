@@ -1,5 +1,6 @@
 import { codeGen } from "./codegen";
 import { downloadDocData } from "./download";
+import { handleOverrides } from "./overrides/handleOverrides";
 
 let skipDownload = process.env.SKIP_DOWNLOAD;
 const main = async () => {
@@ -8,6 +9,8 @@ const main = async () => {
   } else {
     console.warn("Skipped Download");
   }
+
+  await handleOverrides();
 
   await codeGen();
 };
