@@ -1,22 +1,32 @@
+import chalk from "chalk";
 import { swaggerLikeFormat } from "../swaggerLikeFormat";
 import { typesMap } from "../typesMap";
 import { getValidReturnType } from "../utils/getValidReturnType";
 import fs from "fs/promises";
 
-const builtModelTracker: Record<string, string> = {};
+const builtModelTracker: Record<string, string[]> = {};
 
 export const buildModels = async (
   data: typeof swaggerLikeFormat._type.models,
+  originFileName: string,
 ) => {
   for (const key in data) {
     const model = data[key];
 
-    if (model.deprecated) {
+    if (!builtModelTracker[model.id]) {
+      builtModelTracker[model.id] = [originFileName];
+    } else {
+      builtModelTracker[model.id].push(originFileName);
+      console.warn(
+        chalk.red(`Duplicate Model (${chalk.redBright(model.id)}), details:\n`),
+        chalk.yellow(builtModelTracker[model.id]),
+        chalk.blue("\nSkipped most recent version"),
+      );
       continue;
     }
 
-    if (builtModelTracker[model.id]) {
-      console.warn(`[WARN] Duplicate Model ${model.id}`);
+    if (model.deprecated) {
+      continue;
     }
 
     const modelName = getValidReturnType(model.id);
@@ -54,7 +64,6 @@ export const buildModels = async (
     builtModel += propDetailsArray.join(",");
     builtModel += `}`;
 
-    builtModelTracker[model.id] = modelName;
     await fs.writeFile(
       `./dist/models/${getValidReturnType(model.id)}.ts`,
       builtModel,

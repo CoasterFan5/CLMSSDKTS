@@ -6,7 +6,20 @@ import { buildFunction } from "./functionBuilder";
 import { createIndexFile } from "./builtMethodManager";
 import { buildModels } from "./models/buildModels";
 import { getValidReturnType } from "./utils/getValidReturnType";
-const skipList = ["index.json"];
+import chalk from "chalk";
+
+const skipList = [
+  "index.json",
+  "what_if_grades.json",
+  "plagiarism_detection_submissions.json",
+  "rubrics.json",
+  "live_assessments.json",
+  "course_pace.json",
+  "progress.json",
+  "outcome_results.json",
+  "account_reports.json",
+  "accounts_(lti).json",
+];
 
 const typesMap: Record<string, string> = {
   integer: "number",
@@ -30,8 +43,10 @@ export const codeGen = async () => {
   const dir = await fs.readdir("./swagger");
   for (const fileName of dir) {
     if (skipList.includes(fileName)) {
+      console.info(chalk.yellow(`Skipping ${fileName}`));
       continue;
     }
+
     const fData = (await fs.readFile(`./swagger/${fileName}`)).toString();
     const newData = swaggerLikeFormat.safeParse(JSON.parse(fData));
     if (newData.error) {
@@ -39,7 +54,7 @@ export const codeGen = async () => {
     }
 
     // lets do models now
-    await buildModels(newData.data.models);
+    const duplicate = await buildModels(newData.data.models, fileName);
 
     // the actual routes
 

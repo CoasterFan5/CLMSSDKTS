@@ -10,7 +10,10 @@ const main = async () => {
     console.warn("Skipped Download");
   }
 
-  await handleOverrides();
+  /*
+    Overrides are coming, for now, there is a skiplist codegen.ts
+  */
+  // await handleOverrides();
 
   await codeGen();
 };

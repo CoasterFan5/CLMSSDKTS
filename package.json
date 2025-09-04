@@ -19,6 +19,7 @@
     "@dotenvx/dotenvx": "^1.49.0",
     "@types/node": "^22.15.17",
     "api-spec-converter": "^2.12.0",
+    "chalk": "^5.6.0",
     "swagger-converter": "^2.1.0",
     "tsx": "^4.20.5",
     "zod": "^3.24.4"
